@@ -7,7 +7,7 @@ mongoose.connect(config.db);
 
 const barbers = [
   {
-    name:           "The Refinery",
+    name:           "The Refinery - Mayfair",
     website:        "https://www.the-refinery.com/",
     image:          "https://www.the-refinery.com/wp-content/themes/twentythirteen/images/contact_refinery.png",
     vibe:           "Upscale boutique meets Saville Row",
@@ -17,13 +17,33 @@ const barbers = [
     otherServices:  "Shaving, Facial, Manicure, Massage"
   },
   {
-    name:           "Ruffians",
+    name:           "The Refinery - Harrods",
+    website:        "https://www.the-refinery.com/",
+    image:          "http://enclothed.co.uk/wp-content/uploads/2015/08/the-refinery.jpg",
+    vibe:           "Upscale boutique meets Saville Row",
+    description:    "The Refinery is Londons one-stop Grooming Emporium for men. Established in January 2000 we offer barbering, skincare and spa treatments in exclusive luxury retreats in Mayfair and Harrods, Knightsbridge.",
+    lat:            "51.4987204",
+    lng:            "-0.1644124",
+    otherServices:  "Shaving, Facial, Manicure, Massage"
+  },
+  {
+    name:           "Ruffians - Marylebone",
     website:        "http://ruffians.co.uk/",
-    image:          "http://ruffians.co.uk/system/instances/19/original/the-ruffians-standard.jpg?1383247989",
+    image:          "http://britishbarbers.com/uploads/564332ed21fb4.png",
     vibe:           "Easy-going, quirky and stylish, a little slice of Edinburgh in the heart of London",
     description:    "Ruffians Barbers is an award-winning barber shop and store, giving the best quality haircuts and cut-throat shaves. Our staff are hand-picked for their exceptional skills and are carefully trained to guarantee you always receive our high Ruffians standard.",
-    lat:            "51.526015",
-    lng:            "-0.1509515",
+    lat:            "51.516071",
+    lng:            "-0.1513205",
+    otherServices:   "Shaving, Moustache Trims, Beard Tidies"
+  },
+  {
+    name:           "Ruffians - Covent Garden",
+    website:        "http://ruffians.co.uk/",
+    image:          "http://www.joshwasaintjames.com/wp-content/uploads/2015/07/ruffians.jpg",
+    vibe:           "Easy-going, quirky and stylish, a little slice of Edinburgh in the heart of London",
+    description:    "Ruffians Barbers is an award-winning barber shop and store, giving the best quality haircuts and cut-throat shaves. Our staff are hand-picked for their exceptional skills and are carefully trained to guarantee you always receive our high Ruffians standard.",
+    lat:            "51.5106761",
+    lng:            "-0.1249285",
     otherServices:   "Shaving, Moustache Trims, Beard Tidies"
   },
   {
@@ -47,23 +67,53 @@ const barbers = [
     otherServices:  "Shaving, Beard and Moustache Trims, Technical Issues"
   },
   {
-    name:           "Tommy Guns",
+    name:           "Tommy Guns - Soho",
     website:        "http://tommyguns.co.uk/",
     image:          "https://img.grouponcdn.com/seocms/o85V16WHZpYk7yVPsowJ/jS-600x450.jpg",
     vibe:           "An institution of mens hairdressing - cool, decadent but relaxed",
     description:    "Since 1994 we have built an enviable reputation for delivering iconic looks and trends in our fabulous salons in Soho and Shoreditch London, we offer a relaxed but professional atmosphere combined with the best hair stylists London has to offer.",
-    lat:            "51.5128643",
-    lng:            "-0.1379068",
+    lat:            "51.5128518",
+    lng:            "-0.1373596",
     otherServices:  "Color, Ladies Hairdressing"
   },
   {
-    name:           "Murdock London",
+    name:           "Tommy Guns - Shoreditch",
+    website:        "http://tommyguns.co.uk/",
+    image:          "https://s3-media2.fl.yelpcdn.com/bphoto/8dfVSNY9_kfZu1jPpfDRSw/348s.jpg",
+    vibe:           "An institution of mens hairdressing - cool, decadent but relaxed",
+    description:    "Since 1994 we have built an enviable reputation for delivering iconic looks and trends in our fabulous salons in Soho and Shoreditch London, we offer a relaxed but professional atmosphere combined with the best hair stylists London has to offer.",
+    lat:            "51.5256742",
+    lng:            "-0.0815347",
+    otherServices:  "Color, Ladies Hairdressing"
+  },
+  {
+    name:           "Murdock London - Soho",
+    website:        "https://www.murdocklondon.com/",
+    image:          "https://www.murdocklondon.com/media/wysiwyg/Content/Brewer-Street.jpg",
+    vibe:           "A classic barbers",
+    description:    "At the heart of Murdock London are our grooming experiences. Classic barber services such as Traditional Wet Shaves, Full Beard Reshapes and Restyle Haircuts, inspired by the grand heritage of St James’ barbershops but tailored for modern, style-conscious men",
+    lat:            "51.5134648",
+    lng:            "-0.1402395",
+    otherServices:  "Shave, Beard and Moustache Shaping, Facial, Manicure, Shoe Shine"
+  },
+  {
+    name:           "Murdock London - Covent Garden",
     website:        "https://www.murdocklondon.com/",
     image:          "http://i0.wp.com/dapperchapper.com/wp-content/uploads/2014/11/murdock.jpg",
     vibe:           "A classic barbers",
     description:    "At the heart of Murdock London are our grooming experiences. Classic barber services such as Traditional Wet Shaves, Full Beard Reshapes and Restyle Haircuts, inspired by the grand heritage of St James’ barbershops but tailored for modern, style-conscious men",
     lat:            "51.5131018",
     lng:            "-0.1402905",
+    otherServices:  "Shave, Beard and Moustache Shaping, Facial, Manicure, Shoe Shine"
+  },
+  {
+    name:           "Murdock London - Shoreditch",
+    website:        "https://www.murdocklondon.com/",
+    image:          "https://s3-media2.fl.yelpcdn.com/bphoto/j0UqH1aFdCQRXwUs4HzoGQ/ls.jpg",
+    vibe:           "A classic barbers",
+    description:    "At the heart of Murdock London are our grooming experiences. Classic barber services such as Traditional Wet Shaves, Full Beard Reshapes and Restyle Haircuts, inspired by the grand heritage of St James’ barbershops but tailored for modern, style-conscious men",
+    lat:            "51.5244333",
+    lng:            "-0.0759985",
     otherServices:  "Shave, Beard and Moustache Shaping, Facial, Manicure, Shoe Shine"
   },
   {
@@ -77,7 +127,17 @@ const barbers = [
     otherServices:   "Shave, Facial, Manicure"
   },
   {
-    name:             "Geo.F.Trumper",
+    name:             "Geo.F.Trumper - St James",
+    website:          "https://www.trumpers.com/",
+    image:            "http://looking-at-london.com/wp-content/uploads/2015/08/Gentlemans-Hairdresser-St.-Jamess-Sony-370.jpg",
+    vibe:             "As close to a Empire-era shave as you'll ever get",
+    description:      "Trumper offer a comprehensive haircutting service for all styles. At Trumper we deal with the image as an integral part of the service and will be pleased to advise on a style to suit you and advise on hair care and how to keep a style looking perfect.",
+    lat:              "51.5084496",
+    lng:              "-0.1370256",
+    otherServices:    "Colour, Shaving, Manicure, Pedicure, Massage, Moustache and Beard Trim"
+  },
+  {
+    name:             "Geo.F.Trumper - Mayfair",
     website:          "https://www.trumpers.com/",
     image:            "https://s3-media1.fl.yelpcdn.com/bphoto/S0PA3thvK32cIcEtpoXBBQ/o.jpg",
     vibe:             "As close to a Empire-era shave as you'll ever get",
@@ -87,7 +147,7 @@ const barbers = [
     otherServices:    "Colour, Shaving, Manicure, Pedicure, Massage, Moustache and Beard Trim"
   },
   {
-    name:              "Jones and Payne",
+    name:              "Jones and Payne - Covent Garden",
     website:           "http://www.jonesandpayne.com/",
     image:             "http://static1.squarespace.com/static/53309469e4b0d750ebcc4c11/5331fb28e4b0dbc1d5c98202/5331fb37e4b009c4e69450e4/1395784530910/jones_and_payne_lee_goldup_022.jpg",
     vibe:              "Old-school barber meets hipster paradise",
@@ -97,13 +157,43 @@ const barbers = [
     otherServices:     "Colour, Ladies Hairdressing"
   },
   {
-    name:             "Ted's Grooming Room",
+    name:              "Jones and Payne - Shoreditch",
+    website:           "http://www.jonesandpayne.com/",
+    image:             "http://4.bp.blogspot.com/-oOTzmSPzVII/TsbaQ9Ks55I/AAAAAAAACos/jAfKs5Mm6KQ/s1600/310979_10100203246948895_61411014_51912451_132490172_n.jpg",
+    vibe:              "Old-school barber meets hipster paradise",
+    description:       "Jones & Payne have combined West End luxury and East London ‘cool’ resulting in a unique and luxury salon experience in London.",
+    lat:               "51.5245709",
+    lng:               "-0.0816711",
+    otherServices:     "Colour, Ladies Hairdressing"
+  },
+  {
+    name:             "Ted's Grooming Room - Holborn",
     website:          "https://tedsgroomingroom.com/",
-    image:            "http://modissimo.fr/wp/wp-content/uploads/2014/07/Teds-Grooming.jpeg",
+    image:            "https://tedsgroomingroom.com/wp-content/uploads/2015/11/tgr_theobolds_road_4-1000x666.jpg?timestamp=1473706770025",
     vibe:             "If you're a Ted fan you'll love this - uniform, stylish and traditional",
     description:      "In his quest for the perfect shave, ted discovered the ancient crafts and techniques of the ottoman empire’s master barbers. Applying their secrets and know-how, ted has recreated this invigorating experience at ten unique locations in Central London",
     lat:              "51.5202687",
     lng:              "-0.1181558",
+    otherServices:    "Eyebrow Threading, Shaving, Facial"
+  },
+  {
+    name:             "Ted's Grooming Room - Shoreditch",
+    website:          "https://tedsgroomingroom.com/",
+    image:            "https://tedsgroomingroom.com/wp-content/uploads/2015/10/tgr_commercial_street_1-1000x666.jpg?timestamp=1473706642751",
+    vibe:             "If you're a Ted fan you'll love this - uniform, stylish and traditional",
+    description:      "In his quest for the perfect shave, ted discovered the ancient crafts and techniques of the ottoman empire’s master barbers. Applying their secrets and know-how, ted has recreated this invigorating experience at ten unique locations in Central London",
+    lat:              "51.5214138",
+    lng:              "-0.0756581",
+    otherServices:    "Eyebrow Threading, Shaving, Facial"
+  },
+  {
+    name:             "Ted's Grooming Room - St Paul's",
+    website:          "https://tedsgroomingroom.com/",
+    image:            "https://tedsgroomingroom.com/wp-content/uploads/2015/11/tgr_cheapside_3-1000x666.jpg?timestamp=1473706791606",
+    vibe:             "If you're a Ted fan you'll love this - uniform, stylish and traditional",
+    description:      "In his quest for the perfect shave, ted discovered the ancient crafts and techniques of the ottoman empire’s master barbers. Applying their secrets and know-how, ted has recreated this invigorating experience at ten unique locations in Central London",
+    lat:              "51.5140079",
+    lng:              "-0.0953854",
     otherServices:    "Eyebrow Threading, Shaving, Facial"
   },
   {

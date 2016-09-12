@@ -1,59 +1,3 @@
-// const googleMap = googleMap || {};
-//
-// googleMap.api_url = "http://localhost:3000/api";
-//
-// googleMap.init = function(){
-//   this.mapSetup();
-//   this.eventListeners();
-// };
-//
-// googleMap.eventListeners = function () {
-//   $('main').on('submit', 'form', this.addBarber);
-// };
-//
-// googleMap.addBarber = function() {
-//   event.preventDefault();
-//   $.ajax({
-//     method: "POST",
-//     url: "http://localhost:3000/api/restaurants",
-//     data: $(this).serialize()
-//   }).done(data => {
-//     console.log(data.barber);
-//     googleMap.createMarkerForBarber(null, data.barber);
-//     $('form').reset().hide();
-//   });
-// };
-//
-//
-// googleMap.mapSetup = function() {
-//  let canvas     = document.getElementById("map-canvas");
-//  let mapOptions = {
-//    zoom:      13,
-//    center:    new google.maps.LatLng(51.506178,-0.088369),
-//    mapTypeId: google.maps.mapTypeId.ROADMAP
-//  };
-//  this.map = new goole.maps.Map(canvas, mapOptions);
-//  this.getBarbers();
-// };
-//
-// googleMap.getBarbers = function() {
-//   return $.get(`${this.api_url}/barbers`).done(this.loopThroughBarbers.bind(this));
-// };
-//
-// googleMap.loopThroughBarbers = function(data) {
-//   return $.each(data.barbers, this.createMarkerForBarber.bind(this));
-// };
-//
-// googleMap.createMarkerForBarber = function(index, barber) {
-//   let latlng = new google.maps.LatLng(barber.lat, barber.lng);
-//   let marker = new google.maps.Marker({
-//     position: latlng,
-//     map:      this.map,
-//   });
-// };
-//
-// $(googleMap.init.bind(googleMap));
-
 console.log("yo");
 
 const App = App || {};
@@ -67,6 +11,10 @@ App.init = function() {
   $(".logout").on("click", this.logout.bind(this));
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
+  this.$main.on("submit", "form", this.addBarber);
+
+// const barber = require("../db/seeds");
+// App.api_url = "http://localhost:3000/api";
 
   if(this.getToken()){
     this.loggedInState();
@@ -89,6 +37,39 @@ lng: -0.088369},
 zoom: 13,
 mapTypeId: "roadmap"
 });
+// this.map = new google.maps.Map('map-canvas', mapOptions);
+this.getBarber();
+this.loopThroughBarbers();
+this.createMarkerForBarber();
+};
+
+App.addBarber = function() {
+  event.preventDefault();
+  $.ajax({
+    method: "POST",
+    url: "http://localhost:3000/api/restaurants",
+    data: $(this).serialize()
+  }).done(data => {
+    console.log(data.barber);
+    googleMap.createMarkerForBarber(null, data.barber);
+    $('form').reset().hide();
+  });
+};
+
+App.getBarber = function (){
+  return $.get(`${this.api_url}/barbers`).done(this.loopThroughBarbers);
+};
+
+App.loopThroughBarbers = function(data) {
+  return $.each(data.barbers, this.createMarkerForBarber);
+};
+
+App.createMarkerForBarber = function(index, barber) {
+  let latlng = new google.maps.LatLng(barber.lat, barber.lng);
+  let marker = new google.maps.Marker({
+    position: latlng,
+    map:      this.map,
+  });
 };
 
 App.loggedOutState = function() {
