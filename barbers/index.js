@@ -12,7 +12,7 @@ const path          = require("path");
 const app           = express();
 const config        = require("./config/config");
 const apiRouter     = require("./config/apiRouter");
-// const webRouter     = require("./config/webRouter");
+const webRouter     = require("./config/webRouter");
 
 mongoose.connect(config.db);
 
@@ -36,7 +36,7 @@ function jwtErrorHandler (err, req, res, next) {
   return res.status(401).json({ message: "Unauthorized Request" });
 }
 
-// app.use("/", webRouter);
+app.use("/", webRouter);
 app.use("/api", apiRouter);
 
 

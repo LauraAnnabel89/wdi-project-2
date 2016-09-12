@@ -1,0 +1,20 @@
+{
+  "name": "barbers",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "laura.tombs@gmail.com <laura.tombs@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/LauraAnnabel89/wdi-project-2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}
