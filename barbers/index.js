@@ -2,7 +2,7 @@ const express       = require("express");
 const bcrypt        = require("bcrypt");
 const bodyParser    = require("body-parser");
 const cors          = require("cors");
-const expressJwt    = require("express-jwt");
+const expressJWT   = require("express-jwt");
 const jsonWebToken  = require("jsonwebtoken");
 const mongoose      = require("mongoose");
 const morgan        = require("morgan");
@@ -13,13 +13,15 @@ const config        = require("./config/config");
 const apiRouter     = require("./config/apiRouter");
 // const webRouter     = require("./config/webRouter");
 
+mongoose.connect(config.db);
+
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded ({ encoded: true }));
 app.use(cors());
 app.use(express.static(`${__dirname}/public`));
 
-app.use("/api", expressJwt ({ secret: config.secret })
+app.use("/api", expressJWT ({ secret: config.secret })
   .unless({
     path: [
       { url : "/api/register", method: ["POST"] },
@@ -34,7 +36,7 @@ function jwtErrorHandler (err, req, res, next) {
 }
 
 // app.use("/", webRouter);
-app.use("api", apiRouter);
+app.use("/api", apiRouter);
 
 
 app.listen(config.port, () => console.log(`Express started on: ${config.port}`));
