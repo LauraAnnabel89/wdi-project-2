@@ -12,8 +12,8 @@ const barbers = [
     image:          "https://www.the-refinery.com/wp-content/themes/twentythirteen/images/contact_refinery.png",
     vibe:           "Upscale boutique meets Saville Row",
     description:    "The Refinery is Londons one-stop Grooming Emporium for men. Established in January 2000 we offer barbering, skincare and spa treatments in exclusive luxury retreats in Mayfair and Harrods, Knightsbridge.",
-    // lat:            "51505777" "51.512834"
-    // lng:            "-155126", "-0.1502184"
+    lat:            "51505777",
+    lng:            "-155126",
     otherServices:  "Shaving, Facial, Manicure, Massage"
   },
   {
@@ -22,8 +22,8 @@ const barbers = [
     image:          "http://ruffians.co.uk/system/instances/19/original/the-ruffians-standard.jpg?1383247989",
     vibe:           "Easy-going, quirky and stylish, a little slice of Edinburgh in the heart of London",
     description:    "Ruffians Barbers is an award-winning barber shop and store, giving the best quality haircuts and cut-throat shaves. Our staff are hand-picked for their exceptional skills and are carefully trained to guarantee you always receive our high Ruffians standard.",
-    // lat:            "51.526015", "51.5261263", "51.5187031"
-    // lng:            "-0.1509515", "-0.1509515", "-0.1372186"
+    lat:            "51.526015",
+    lng:            "-0.1509515",
     otherServices:   "Shaving, Moustache Trims, Beard Tidies"
   },
   {
@@ -97,54 +97,64 @@ const barbers = [
     otherServices:     "Colour, Ladies Hairdressing"
   },
   {
-    name:             ""
-    website:
-    image:
-    vibe:
-    description:
-    lat:
-    lng:
-    otherServices:
+    name:             "Ted's Grooming Room",
+    website:          "https://tedsgroomingroom.com/",
+    image:            "http://modissimo.fr/wp/wp-content/uploads/2014/07/Teds-Grooming.jpeg",
+    vibe:             "If you're a Ted fan you'll love this - uniform, stylish and traditional",
+    description:      "In his quest for the perfect shave, ted discovered the ancient crafts and techniques of the ottoman empire’s master barbers. Applying their secrets and know-how, ted has recreated this invigorating experience at ten unique locations in Central London",
+    lat:              "51.5202687",
+    lng:              "-0.1181558",
+    otherServices:    "Eyebrow Threading, Shaving, Facial"
   },
   {
-    name:
-    website:
-    image:
-    vibe:
-    description:
-    lat:
-    lng:
-    otherServices:
+    name:             "Gentlemen's Tonic",
+    website:          "http://www.gentlemenstonic.com/",
+    image:            "http://www.barber-shops.londonschoolofbarbering.com/wp-content/uploads/2014/12/3451b1ce-ab0e-4166-a5e4-3bca5d500c38-711x400.jpeg",
+    vibe:             "Traditional, slick, West-London-Gent-Esque",
+    description:      "Gentlemen’s Tonic is a luxury establishment founded in 2004 in the heart of Mayfair, that affords the modern man a traditional barbershop and a variety of lifestyle and grooming services.",
+    lat:              "51.5111964",
+    lng:              "-0.1461134",
+    otherServices:    "Shaving, Facial, Massage, Packages"
   },
   {
-    name:
-    website:
-    image:
-    vibe:
-    description:
-    lat:
-    lng:
-    otherServices:
+    name:             "Sharps",
+    website:          "http://www.sharpsbarbers.com/",
+    image:             "http://www.sharpsbarbers.com/img/windmill/01.jpg",
+    vibe:             "The new generation of barbers",
+    description:      "SHARPS opened for business in 2002 to help get guys comfortable in their own skin and spark a major movement around new-school barbering. Grooming sounds stuffy and boring so we call it PREP. We believe that being prepared in life can make all the difference.",
+    lat:              "51.5187311",
+    lng:              "-0.1342383",
+    otherServices:     "Shave, Hot-Towel"
   },
   {
-    name:
-    website:
-    image:
-    vibe:
-    description:
-    lat:
-    lng:
-    otherServices:
+    name:              "Fish",
+    website:           "http://www.fishsoho.com/",
+    image:             "http://i1056.photobucket.com/albums/t374/phodiaries/phodiaries001/London/image1_zps8t96ghau.jpg",
+    vibe:              "Punk rock meets established barbers",
+    description:       "In 1987, hairdresser and entrepreneur Paul Burfoot bought 30 D'Arblay Street, an old sex shop, and set about converting it into a salon. While renovating, Paul exposed beautiful art deco tiles revealing that the shop was once a fishmongers - and so 'Fish Hairdressing' was born.",
+    lat:               "51.5147246",
+    lng:               "-0.1358768",
+    otherServices:     "Colour, Ladies Hairdressing"
   },
   {
-    name:
-    website:
-    image:
-    vibe:
-    description:
-    lat:
-    lng:
-    otherServices:
+    name:               "Pall Mall Barbers",
+    website:            "http://www.pallmallbarbers.com/",
+    image:              "http://silvertiger2.files.wordpress.com/2012/09/p1590608.png",
+    vibe:               "The don of barbers",
+    description:        "Offering up-to-date barbering services to suit the modern man, Pall Mall Barbers Fitzrovia provides both classic and contemporary men's hairdressing and barbering, as well as beard trimming and wet shaving service",
+    lat:                "51.5239553",
+    lng:                "-0.1410113",
+    otherServices:      "Shave, Beard Shaping, Massage"
+  },
+  {
+    name:               "Barber Streisand",
+    website:            "http://barberstreisand.com/",
+    image:              "http://exmouth.london/wp-content/uploads/2015/12/thirdspacer_1520150091539071_235149163_n.jpg",
+    vibe:               "Go for the name, stay for the cool interior and top-notch hairdressing!",
+    description:        "Barber Streisand is an offbeat unisex barbershop. Committed to the clippers, but turned off by the old-school trimming trade and tired of the pretentious posturing of those new Gentleman’s Clubs groomers, we offer an invigorating alternative to typical barber cuts.",
+    lat:                "51.5261112",
+    lng:                "-0.109289",
+    otherServices:      "Beard and Moustache Shaping"
   }
 ];
 

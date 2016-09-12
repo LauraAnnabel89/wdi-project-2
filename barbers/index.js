@@ -7,6 +7,7 @@ const jsonWebToken  = require("jsonwebtoken");
 const mongoose      = require("mongoose");
 const morgan        = require("morgan");
 const validator     = require("validator");
+const path          = require("path");
 
 const app           = express();
 const config        = require("./config/config");
