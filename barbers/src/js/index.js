@@ -1,58 +1,58 @@
-const googleMap = googleMap || {};
-
-googleMap.api_url = "http://localhost:3000/api";
-
-googleMap.init = function(){
-  this.mapSetup();
-  this.eventListeners();
-};
-
-googleMap.eventListeners = function () {
-  $('main').on('submit', 'form', this.addBarber);
-};
-
-googleMap.addBarber = function() {
-  event.preventDefault();
-  $.ajax({
-    method: "POST",
-    url: "http://localhost:3000/api/restaurants",
-    data: $(this).serialize()
-  }).done(data => {
-    console.log(data.barber);
-    googleMap.createMarkerForBarber(null, data.barber);
-    $('form').reset().hide();
-  });
-};
-
-
-googleMap.mapSetup = function() {
- let canvas     = document.getElementById("map-canvas");
- let mapOptions = {
-   zoom:      13,
-   center:    new google.maps.LatLng(51.506178,-0.088369),
-   mapTypeId: google.maps.mapTypeId.ROADMAP
- };
- this.map = new goole.maps.Map(canvas, mapOptions);
- this.getBarbers();
-};
-
-googleMap.getBarbers = function() {
-  return $.get(`${this.api_url}/barbers`).done(this.loopThroughBarbers.bind(this));
-};
-
-googleMap.loopThroughBarbers = function(data) {
-  return $.each(data.barbers, this.createMarkerForBarber.bind(this));
-};
-
-googleMap.createMarkerForBarber = function(index, barber) {
-  let latlng = new google.maps.LatLng(barber.lat, barber.lng);
-  let marker = new google.maps.Marker({
-    position: latlng,
-    map:      this.map,
-  });
-};
-
-$(googleMap.init.bind(googleMap));
+// const googleMap = googleMap || {};
+//
+// googleMap.api_url = "http://localhost:3000/api";
+//
+// googleMap.init = function(){
+//   this.mapSetup();
+//   this.eventListeners();
+// };
+//
+// googleMap.eventListeners = function () {
+//   $('main').on('submit', 'form', this.addBarber);
+// };
+//
+// googleMap.addBarber = function() {
+//   event.preventDefault();
+//   $.ajax({
+//     method: "POST",
+//     url: "http://localhost:3000/api/restaurants",
+//     data: $(this).serialize()
+//   }).done(data => {
+//     console.log(data.barber);
+//     googleMap.createMarkerForBarber(null, data.barber);
+//     $('form').reset().hide();
+//   });
+// };
+//
+//
+// googleMap.mapSetup = function() {
+//  let canvas     = document.getElementById("map-canvas");
+//  let mapOptions = {
+//    zoom:      13,
+//    center:    new google.maps.LatLng(51.506178,-0.088369),
+//    mapTypeId: google.maps.mapTypeId.ROADMAP
+//  };
+//  this.map = new goole.maps.Map(canvas, mapOptions);
+//  this.getBarbers();
+// };
+//
+// googleMap.getBarbers = function() {
+//   return $.get(`${this.api_url}/barbers`).done(this.loopThroughBarbers.bind(this));
+// };
+//
+// googleMap.loopThroughBarbers = function(data) {
+//   return $.each(data.barbers, this.createMarkerForBarber.bind(this));
+// };
+//
+// googleMap.createMarkerForBarber = function(index, barber) {
+//   let latlng = new google.maps.LatLng(barber.lat, barber.lng);
+//   let marker = new google.maps.Marker({
+//     position: latlng,
+//     map:      this.map,
+//   });
+// };
+//
+// $(googleMap.init.bind(googleMap));
 
 console.log("yo");
 
@@ -79,6 +79,16 @@ App.loggedInState = function() {
   $(".loggedOut").hide();
   $(".loggedIn").show();
   this.mapSetup();
+};
+
+App.mapSetup = function(){
+map = new google.maps.Map(document.getElementById('map-canvas'),
+{ center: {
+lat: 51.506178,
+lng: -0.088369},
+zoom: 13,
+mapTypeId: "roadmap"
+});
 };
 
 App.loggedOutState = function() {
