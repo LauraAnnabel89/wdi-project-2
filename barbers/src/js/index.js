@@ -76,11 +76,16 @@ App.createMarkerForBarber = function(index, barber) {
 
 App.addInfoWindow = function(barber, marker) {
   google.maps.event.addListener(marker, "click", () => {
-    // console.log("yay clicked");
     if (typeof this.infowindow != "undefined") this.infowindow.close();
     this.infowindow = new google.maps.InfoWindow({
-      content: '<h1>${barber.name}</h1>'
-    });
+      content: `
+      <h2>${ barber.name } </h2>
+      <img src = ${ barber.image } />
+      <p> ${ barber.vibe } </p>
+      <p> ${ barber.description } </p>
+      <p> ${ barber.website } </p>
+      <p> ${ barber.otherServices } </p>
+      `});
     this.infowindow.open(this.map, marker);
   });
 };
