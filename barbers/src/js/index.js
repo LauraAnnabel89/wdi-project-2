@@ -11,6 +11,7 @@ App.eventListeners = function() {
   $(".login").on("click", this.login.bind(this));
   $(".logout").on("click", this.logout.bind(this));
   $(".homepage").on("click", this.homepage.bind(this));
+  $(".barbers").on("click", this.allBarbers.bind(this));
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
 
@@ -20,9 +21,6 @@ App.eventListeners = function() {
   } else {
     this.loggedOutState();
   }
-  // else {
-  //   this.homepage();
-  // }
 };
 
 App.loggedInState = function() {
@@ -39,87 +37,8 @@ App.mapSetup = function(){
     zoom: 13,
     center: new google.maps.LatLng(51.506178,-0.088369),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    styles: [{
-        "featureType": "administrative",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "color": "#444444"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#f2f2f2"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-            {
-                "saturation": -100
-            },
-            {
-                "lightness": 45
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#e4f0f3"
-            },
-            {
-                "visibility": "on"
-            }
-        ]
-    }
-]
+    styles: []
   };
-
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getBarbers();
 };
@@ -180,6 +99,7 @@ App.loggedOutState = function() {
   $(".loggedIn").hide();
   this.register();
   this.homepageSetup();
+  this.allBarbers();
 };
 
 App.register = function() {
@@ -225,11 +145,16 @@ App.login = function() {
     this.$main.html(`
       <h1>A Cut Above The Rest</h1>
       <img src="">
-      <a class="nav-link loggedOut register" href="/signup">Sign Up</a>
+      <a class="nav-link loggedOut ${register}" href="/signup">Sign Up</a>
       <a class="nav-link loggedOut login" href="/login">Login</a>
       `);
     $("nav").hide();
   };
+
+  App.allBarbers = function () {
+    event.preventDefault();
+    this.$main.html(`<h1>All Barbers</h1>`);
+};
 
   App.logout = function() {
     event.preventDefault();
