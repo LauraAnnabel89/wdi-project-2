@@ -1,8 +1,7 @@
 const App = App || {};
 
-App.api_url = "http://localhost:3000/api";
-
 App.init = function() {
+  this.apiUrl = "http://localhost:3000/api";
   this.$main  = $("main");
   this.eventListeners();
 };
@@ -13,7 +12,7 @@ App.eventListeners = function() {
   $(".logout").on("click", this.logout.bind(this));
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
-  this.$main.on("submit", "form", this.addBarber);
+  // this.$main.on("submit", "form", this.addBarber);
 
   if(this.getToken()){
     this.loggedInState();
@@ -29,6 +28,7 @@ App.loggedInState = function() {
 };
 
 App.mapSetup = function(){
+  this.$main.html(`<div id="map-canvas"></div>`);
   let canvas = document.getElementById('map-canvas');
 
   let mapOptions = {
@@ -39,8 +39,6 @@ App.mapSetup = function(){
   };
 
   this.map = new google.maps.Map(canvas, mapOptions);
-
-  // this.addBarber();
   this.getBarbers();
 };
 
@@ -59,7 +57,7 @@ App.addBarber = function() {
 };
 
 App.getBarbers = function (){
-  return this.ajaxRequest(`${this.api_url}/barbers`, "GET", null, this.loopThroughBarbers);
+  return this.ajaxRequest(`${this.apiUrl}/barbers`, "GET", null, this.loopThroughBarbers);
 };
 
 App.loopThroughBarbers = function(data) {
@@ -68,7 +66,6 @@ App.loopThroughBarbers = function(data) {
 };
 
 App.createMarkerForBarber = function(index, barber) {
-  console.log(barber.lat, barber.lng)
   let latlng = new google.maps.LatLng(barber.lat, barber.lng);
   let marker = new google.maps.Marker({
     position: latlng,
@@ -129,7 +126,6 @@ App.login = function() {
   App.usersIndex = function(){
     if (event) event.preventDefault();
     let url = `${this.apiUrl}/users`;
-
     return this.ajaxRequest(url, "get", null, this.mapSetup.bind(this));
   };
 
