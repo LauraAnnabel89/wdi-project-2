@@ -5,11 +5,10 @@ const authentications = require("../controllers/authentications");
 const users           = require("../controllers/users");
 const barbers         = require("../controllers/barbers");
 
-router.route("/register")
+router.route("/signup")
   .post(authentications.register);
 router.route("/login")
   .post(authentications.login);
-// router.route("/home");
 
 router.route("/users")
   .get(users.index);

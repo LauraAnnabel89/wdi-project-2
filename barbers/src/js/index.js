@@ -39,28 +39,90 @@ App.mapSetup = function(){
     zoom: 13,
     center: new google.maps.LatLng(51.506178,-0.088369),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    styles: []
+    styles: [{
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#e4f0f3"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
   };
 
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getBarbers();
 };
-
-// App.homepagesetup = function () {
-//   event.preventDefault();
-//   this.$main.html(`
-//     <h1>
-//     <form method="post" action="/login">
-//     <div class="form-group">
-//     <input class="form-control" type="email" name="email" placeholder="Email">
-//     </div>
-//     <div class="form-group">
-//     <input class="form-control" type="password" name="password" placeholder="Password">
-//     </div>
-//     <input class="btn btn-primary" type="submit" value="Login">
-//     </form>
-//     `);
-// };
 
 
 App.addBarber = function() {
@@ -91,6 +153,8 @@ App.createMarkerForBarber = function(index, barber) {
   let marker = new google.maps.Marker({
     position: latlng,
     map:      App.map,
+    icon: "/images/marker.gif",
+    // animation: google.maps.Animation.DROP
   });
   App.addInfoWindow(barber, marker);
 };
@@ -160,7 +224,11 @@ App.login = function() {
     event.preventDefault();
     this.$main.html(`
       <h1>A Cut Above The Rest</h1>
+      <img src="">
+      <a class="nav-link loggedOut register" href="/signup">Sign Up</a>
+      <a class="nav-link loggedOut login" href="/login">Login</a>
       `);
+    $("nav").hide();
   };
 
   App.logout = function() {
