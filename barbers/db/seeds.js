@@ -197,6 +197,16 @@ const barbers = [
     otherServices:    "Eyebrow Threading, Shaving, Facial"
   },
   {
+    name:             "Ted's Grooming Room - Fitzrovia",
+    website:          "https://tedsgroomingroom.com/",
+    image:            "https://tedsgroomingroom.com/wp-content/uploads/2015/11/tgr_mortimer_street_2-1000x666.jpg?timestamp=1473706929659",
+    vibe:             "If you're a Ted fan you'll love this - uniform, stylish and traditional",
+    description:      "In his quest for the perfect shave, ted discovered the ancient crafts and techniques of the ottoman empire’s master barbers. Applying their secrets and know-how, ted has recreated this invigorating experience at ten unique locations in Central London",
+    lat:              "51.51878",
+    lng:              "-0.13535",
+    otherServices:    "Eyebrow Threading, Shaving, Facial"
+  },
+  {
     name:             "Gentlemen's Tonic",
     website:          "http://www.gentlemenstonic.com/",
     image:            "http://www.barber-shops.londonschoolofbarbering.com/wp-content/uploads/2014/12/3451b1ce-ab0e-4166-a5e4-3bca5d500c38-711x400.jpeg",
@@ -207,13 +217,13 @@ const barbers = [
     otherServices:    "Shaving, Facial, Massage, Packages"
   },
   {
-    name:             "Sharps",
+    name:             "Sharps - Fitzrovia",
     website:          "http://www.sharpsbarbers.com/",
     image:             "http://www.sharpsbarbers.com/img/windmill/01.jpg",
     vibe:             "The new generation of barbers",
     description:      "SHARPS opened for business in 2002 to help get guys comfortable in their own skin and spark a major movement around new-school barbering. Grooming sounds stuffy and boring so we call it PREP. We believe that being prepared in life can make all the difference.",
-    lat:              "51.5187311",
-    lng:              "-0.1342383",
+    lat:              "51.5187056",
+    lng:              "-0.1345012",
     otherServices:     "Shave, Hot-Towel"
   },
   {
@@ -227,13 +237,23 @@ const barbers = [
     otherServices:     "Colour, Ladies Hairdressing"
   },
   {
-    name:               "Pall Mall Barbers",
+    name:               "Pall Mall Barbers - Fitzrovia",
     website:            "http://www.pallmallbarbers.com/",
-    image:              "http://silvertiger2.files.wordpress.com/2012/09/p1590608.png",
+    image:              "http://www.pallmallbarbers.com/wp-content/themes/pallmallbarbers-4-woocommerce/library/images/location-fitzrovia-248x165.jpg?b2ea39",
     vibe:               "The don of barbers",
     description:        "Offering up-to-date barbering services to suit the modern man, Pall Mall Barbers Fitzrovia provides both classic and contemporary men's hairdressing and barbering, as well as beard trimming and wet shaving service",
-    lat:                "51.5239553",
-    lng:                "-0.1410113",
+    lat:                "51.523952",
+    lng:                "-0.1410328",
+    otherServices:      "Shave, Beard Shaping, Massage"
+  },
+  {
+    name:               "Pall Mall Barbers - Westminster",
+    website:            "http://www.pallmallbarbers.com/",
+    image:              "http://www.pallmallbarbers.com/wp-content/uploads/2014/11/MG_1695.jpg?b2ea39",
+    vibe:               "The don of barbers",
+    description:        "Offering up-to-date barbering services to suit the modern man, Pall Mall Barbers Fitzrovia provides both classic and contemporary men's hairdressing and barbering, as well as beard trimming and wet shaving service",
+    lat:                "51.4991658",
+    lng:                "-0.1358193",
     otherServices:      "Shave, Beard Shaping, Massage"
   },
   {
@@ -245,7 +265,18 @@ const barbers = [
     lat:                "51.5261112",
     lng:                "-0.109289",
     otherServices:      "Beard and Moustache Shaping"
+  },
+  {
+    name:               "Nomad Barber",
+    website:            "http://nomadbarber.com/",
+    image:              "Nomad Barber LDN is an award winning barbershop located in the heart of London's famous east end. We opened in october 2014 and have become one of the most famous barbershops in the global barbering community, with customers from all over the world coming to visit on a daily basis.",
+    vibe:               "Insanely cool plus the staff are full of amazing stories!",
+    description:        "Nomad Barber LDN is an award winning barbershop located in the heart of London's famous east end. We opened in october 2014 and have become one of the most famous barbershops in the global barbering community, with customers from all over the world coming to visit on a daily basis.",
+    lat:                "51.5203599",
+    lng:                "-0.0716388",
+    otherServices:      "Shave, Beard and Moustache Shaping"
   }
 ];
+
 
 barbers.forEach(barber => Barber.create(barber, (err, barber) => console.log(`${barber.name} was saved.`)));

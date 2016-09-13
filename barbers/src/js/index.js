@@ -1,9 +1,8 @@
-console.log("yo");
-
 const App = App || {};
 
+App.api_url = "http://localhost:3000/api";
+
 App.init = function() {
-  this.apiUrl = "http://localhost:3000/api";
   this.$main  = $("main");
 
   $(".register").on("click", this.register.bind(this));
@@ -12,9 +11,6 @@ App.init = function() {
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
   this.$main.on("submit", "form", this.addBarber);
-
-// const barber = require("../db/seeds");
-// App.api_url = "http://localhost:3000/api";
 
   if(this.getToken()){
     this.loggedInState();
@@ -47,7 +43,7 @@ App.addBarber = function() {
   event.preventDefault();
   $.ajax({
     method: "POST",
-    url: "http://localhost:3000/api/restaurants",
+    url: "http://localhost:3000/api/barbers",
     data: $(this).serialize()
   }).done(data => {
     console.log(data.barber);
