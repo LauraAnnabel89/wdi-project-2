@@ -83,7 +83,7 @@ App.addInfoWindow = function(barber, marker) {
       <img src = ${ barber.image } />
       <p> ${ barber.vibe } </p>
       <p> ${ barber.description } </p>
-      <p> ${ barber.website } </p>
+      <li> ${ barber.website }</li>
       <p> ${ barber.otherServices } </p>
       `});
     this.infowindow.open(this.map, marker);
