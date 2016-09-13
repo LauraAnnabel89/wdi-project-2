@@ -9,6 +9,7 @@ router.route("/register")
   .post(authentications.register);
 router.route("/login")
   .post(authentications.login);
+// router.route("/home");
 
 router.route("/users")
   .get(users.index);

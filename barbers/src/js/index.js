@@ -10,15 +10,19 @@ App.eventListeners = function() {
   $(".register").on("click", this.register.bind(this));
   $(".login").on("click", this.login.bind(this));
   $(".logout").on("click", this.logout.bind(this));
+  $(".homepage").on("click", this.homepage.bind(this));
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
-  // this.$main.on("submit", "form", this.addBarber);
+
 
   if(this.getToken()){
     this.loggedInState();
   } else {
     this.loggedOutState();
   }
+  // else {
+  //   this.homepage();
+  // }
 };
 
 App.loggedInState = function() {
@@ -41,6 +45,23 @@ App.mapSetup = function(){
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getBarbers();
 };
+
+// App.homepagesetup = function () {
+//   event.preventDefault();
+//   this.$main.html(`
+//     <h1>
+//     <form method="post" action="/login">
+//     <div class="form-group">
+//     <input class="form-control" type="email" name="email" placeholder="Email">
+//     </div>
+//     <div class="form-group">
+//     <input class="form-control" type="password" name="password" placeholder="Password">
+//     </div>
+//     <input class="btn btn-primary" type="submit" value="Login">
+//     </form>
+//     `);
+// };
+
 
 App.addBarber = function() {
   console.log(Barber);
@@ -94,6 +115,7 @@ App.loggedOutState = function() {
   $(".loggedOut").show();
   $(".loggedIn").hide();
   this.register();
+  this.homepageSetup();
 };
 
 App.register = function() {
@@ -132,6 +154,13 @@ App.login = function() {
     <input class="btn btn-primary" type="submit" value="Login">
     </form>
     `);
+  };
+
+  App.homepage = function() {
+    event.preventDefault();
+    this.$main.html(`
+      <h1>A Cut Above The Rest</h1>
+      `);
   };
 
   App.logout = function() {
