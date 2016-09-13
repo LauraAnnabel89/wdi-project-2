@@ -71,6 +71,18 @@ App.createMarkerForBarber = function(index, barber) {
     position: latlng,
     map:      App.map,
   });
+  App.addInfoWindow(barber, marker);
+};
+
+App.addInfoWindow = function(barber, marker) {
+  google.maps.event.addListener(marker, "click", () => {
+    // console.log("yay clicked");
+    if (typeof this.infowindow != "undefined") this.infowindow.close();
+    this.infowindow = new google.maps.InfoWindow({
+      content: '<h1>${barber.name}</h1>'
+    });
+    this.infowindow.open(this.map, marker);
+  });
 };
 
 App.loggedOutState = function() {
