@@ -6,7 +6,7 @@ module.exports = {
 const Barber = require("../models/barber");
 
 function barberIndex(req, res){
-  Barber.find({}, (err, barber) => {
+  Barber.find({}, (err, barbers) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(200).json({ barbers });
   });

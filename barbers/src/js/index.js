@@ -4,7 +4,10 @@ App.api_url = "http://localhost:3000/api";
 
 App.init = function() {
   this.$main  = $("main");
+  this.eventListeners();
+};
 
+App.eventListeners = function() {
   $(".register").on("click", this.register.bind(this));
   $(".login").on("click", this.login.bind(this));
   $(".logout").on("click", this.logout.bind(this));
@@ -26,20 +29,23 @@ App.loggedInState = function() {
 };
 
 App.mapSetup = function(){
-map = new google.maps.Map(document.getElementById('map-canvas'),
-{ center: {
-lat: 51.506178,
-lng: -0.088369},
-zoom: 13,
-mapTypeId: "roadmap"
-});
-// this.map = new google.maps.Map('map-canvas', mapOptions);
-this.getBarber();
-this.loopThroughBarbers();
-this.createMarkerForBarber();
+  let canvas = document.getElementById('map-canvas');
+
+  let mapOptions = {
+    zoom: 13,
+    center: new google.maps.LatLng(51.506178,-0.088369),
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: []
+  };
+
+  this.map = new google.maps.Map(canvas, mapOptions);
+
+  // this.addBarber();
+  this.getBarbers();
 };
 
 App.addBarber = function() {
+  console.log(Barber);
   event.preventDefault();
   $.ajax({
     method: "POST",
@@ -52,19 +58,21 @@ App.addBarber = function() {
   });
 };
 
-App.getBarber = function (){
-  return $.get(`${this.api_url}/barbers`).done(this.loopThroughBarbers);
+App.getBarbers = function (){
+  return this.ajaxRequest(`${this.api_url}/barbers`, "GET", null, this.loopThroughBarbers);
 };
 
 App.loopThroughBarbers = function(data) {
-  return $.each(data.barbers, this.createMarkerForBarber);
+  console.log("loopThroughBarbers", data.barbers);
+  return $.each(data.barbers, App.createMarkerForBarber);
 };
 
 App.createMarkerForBarber = function(index, barber) {
+  console.log(barber.lat, barber.lng)
   let latlng = new google.maps.LatLng(barber.lat, barber.lng);
   let marker = new google.maps.Marker({
     position: latlng,
-    map:      this.map,
+    map:      App.map,
   });
 };
 
@@ -126,49 +134,49 @@ App.login = function() {
   };
 
 
-      App.handleForm = function(){
-        event.preventDefault();
+App.handleForm = function(){
+  event.preventDefault();
 
-        let url    = `${App.apiUrl}${$(this).attr("action")}`;
-        let method = $(this).attr("method");
-        let data   = $(this).serialize();
+  let url    = `${App.apiUrl}${$(this).attr("action")}`;
+  let method = $(this).attr("method");
+  let data   = $(this).serialize();
 
-        return App.ajaxRequest(url, method, data, (data) => {
-          console.log(data);
-          if (data.token) {
-            App.setToken(data.token);
-            App.loggedInState();
-          }
-        });
-      };
+  return App.ajaxRequest(url, method, data, (data) => {
+    console.log(data);
+    if (data.token) {
+      App.setToken(data.token);
+      App.loggedInState();
+    }
+  });
+};
 
-      App.ajaxRequest = function(url, method, data, callback){
-        return $.ajax({
-          url,
-          method,
-          data,
-          beforeSend: this.setRequestHeader.bind(this)
-        })
-        .done(callback)
-        .fail(data => {
-          console.log(data);
-        });
-      };
+App.ajaxRequest = function(url, method, data, callback){
+  return $.ajax({
+    url,
+    method,
+    data,
+    beforeSend: this.setRequestHeader.bind(this)
+  })
+  .done(callback)
+  .fail(data => {
+    console.log(data);
+  });
+};
 
-      App.setRequestHeader = function(xhr, settings) {
-        return xhr.setRequestHeader("Authorization", `Bearer ${this.getToken()}`);
-      };
+App.setRequestHeader = function(xhr, settings) {
+  return xhr.setRequestHeader("Authorization", `Bearer ${this.getToken()}`);
+};
 
-      App.setToken = function(token){
-        return window.localStorage.setItem("token", token);
-      };
+App.setToken = function(token){
+  return window.localStorage.setItem("token", token);
+};
 
-      App.getToken = function(){
-        return window.localStorage.getItem("token");
-      };
+App.getToken = function(){
+  return window.localStorage.getItem("token");
+};
 
-      App.removeToken = function(){
-        return window.localStorage.clear();
-      };
+App.removeToken = function(){
+  return window.localStorage.clear();
+};
 
-      $(App.init.bind(App));
+$(App.init.bind(App));
