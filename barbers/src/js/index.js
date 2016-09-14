@@ -41,8 +41,164 @@ App.mapSetup = function(){
   let mapOptions = {
     zoom: 13,
     center: new google.maps.LatLng(51.506178,-0.088369),
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    styles: []
+    styles: [
+      {
+          "featureType": "all",
+          "elementType": "labels.text.fill",
+          "stylers": [
+              {
+                  "saturation": "0"
+              },
+              {
+                  "color": "#000000"
+              },
+              {
+                  "gamma": "1.00"
+              },
+              {
+                  "weight": "0.01"
+              }
+          ]
+      },
+      {
+          "featureType": "all",
+          "elementType": "labels.text.stroke",
+          "stylers": [
+              {
+                  "color": "#fafafa"
+              },
+              {
+                  "weight": "0.01"
+              },
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "all",
+          "elementType": "labels.icon",
+          "stylers": [
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "administrative",
+          "elementType": "labels.text.fill",
+          "stylers": [
+              {
+                  "color": "#444444"
+              }
+          ]
+      },
+      {
+          "featureType": "landscape",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "color": "#f2f2f2"
+              }
+          ]
+      },
+      {
+          "featureType": "poi",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "road",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "saturation": -100
+              },
+              {
+                  "lightness": 45
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "simplified"
+              }
+          ]
+      },
+      {
+          "featureType": "road.arterial",
+          "elementType": "labels.icon",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "transit",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "color": "#fafafa"
+              },
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "geometry.fill",
+          "stylers": [
+              {
+                  "visibility": "on"
+              },
+              {
+                  "color": "#ffffff"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "geometry.stroke",
+          "stylers": [
+              {
+                  "visibility": "on"
+              },
+              {
+                  "color": "#ffffff"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "labels.text",
+          "stylers": [
+              {
+                  "visibility": "on"
+              },
+              {
+                  "color": "#000000"
+              }
+          ]
+      }
+  ]
   };
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getBarbers();
@@ -76,7 +232,7 @@ App.createMarkerForBarber = function(index, barber) {
   let marker = new google.maps.Marker({
     position: latlng,
     map:      App.map,
-    // icon: "./images/bartender.jpg",
+    icon: "./images/bmarker.jpg",
     // animation: google.maps.Animation.DROP
   });
   App.addInfoWindow(barber, marker);
@@ -87,12 +243,12 @@ App.addInfoWindow = function(barber, marker) {
     if (typeof this.infowindow != "undefined") this.infowindow.close();
     this.infowindow = new google.maps.InfoWindow({
       content: `
+      <div id="infowindow">
       <h2>${ barber.name } </h2>
       <img src = ${ barber.image } />
       <p> ${ barber.vibe } </p>
-      <p> ${ barber.description } </p>
-      <a href="${ barber.website}"> ${ barber.website } </a>
-      <p> ${ barber.otherServices } </p>
+      <a href="${ barber.website}"> ${ barber.website } </a
+      </div>
       `});
       this.infowindow.open(this.map, marker);
     });
@@ -145,10 +301,10 @@ App.addInfoWindow = function(barber, marker) {
     App.homePage = function() {
       event.preventDefault();
       this.$main.html(`
-        <main>
+        <div id="home">
         <h1>A Cut Above The Rest</h1>
-        <img id="" src="">
-        </main>
+        <img id="chair" src="images/chair.jpg">
+        </di>
         `);
         // $("nav").hide();
       };

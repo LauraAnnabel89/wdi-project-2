@@ -5,12 +5,65 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  color: $white;
+  font-family: $main-font;
+  text-transform: uppercase;
+  color: $dark;
 }
+
+main {
+  background-color: $white;
+}
+
+.container {
+  h2 {
+    font-family: $main-font;
+    font-size: 20px;
+    text-decoration: underline;
+  }
+form {
+  .form-group {
+    .form-control {
+    font-family: $main-font;
+    font-size: 10px;
+  }
+}
+}
+}
+#home {
+font-size: 50px;
+text-align: center;
+ #chair {
+   width: 100%;
+   height: 100%;
+   padding: 0;
+ }
+}
+
 #map-canvas {
   width: 100%;
   height: 75vh;
-  border: 20px solid $camel;
+  border: 15px solid $camel;
+}
+
+#infowindow {
+  font-family: $main-font;
+  text-transform: uppercase;
+  font-size: 10px;
+  text-align: center;
+  height: 250px;
+  width: 150px;
+  border-radius: 10px;
+  margin-left: 20px;
+ h2 {
+   font-size: 15px;
+   margin-right: 10px;
+ }
+  img {
+    height: 100px;
+    width: 100px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
 }
 
 nav {
@@ -26,15 +79,26 @@ nav {
     color: $green;
   }
 }
+}
 .navbar-brand {
   font-size: 20px;
   text-decoration: underline;
 }
-}
 .col-md-4 {
-  text-align: center;
-  .card-img-top {
-    height: 300px;
-    width: 400px;
+  font-family: $main-font;
+  padding: 20px;
+  color: $dark;
   }
-}
+  .card-img-top {
+    height: 250px;
+    width: 350px;
+  }
+  #one {
+   border: 15px solid $dark;
+  }
+  #two {
+    border: 15px solid $green;
+  }
+  #three {
+    border: 15px solid $grey;
+  }
