@@ -142,62 +142,127 @@ App.addInfoWindow = function(barber, marker) {
       `);
     };
 
-  App.homePage = function() {
-    event.preventDefault();
-    this.$main.html(`
-      <main>
-      <h1>A Cut Above The Rest</h1>
-      <img id="" src="">
-      </main>
-      `);
-    // $("nav").hide();
-    };
-
-  App.editorialPage = function() {
-    event.preventDefault();
-    this.$main.html(`
-      <h1>Editorial</h1>`);
-    };
-
-  App.allBarbers = function() {
-    event.preventDefault();
-    // getBarbers();
-    this.$main.html(`
-    <h1>All Barbers</h1>
-`);
-    };
-
-    App.logout = function() {
+    App.homePage = function() {
       event.preventDefault();
-      this.removeToken();
-      this.loggedOutState();
-    };
-
-    App.usersIndex = function(){
-      if (event) event.preventDefault();
-      let url = `${this.apiUrl}/users`;
-      return this.ajaxRequest(url, "get", null, this.mapSetup.bind(this));
-    };
-
-
-    App.handleForm = function(){
-      event.preventDefault();
-
-      let url    = `${App.apiUrl}${$(this).attr("action")}`;
-      let method = $(this).attr("method");
-      let data   = $(this).serialize();
-
-      return App.ajaxRequest(url, method, data, (data) => {
-        console.log(data);
-        if (data.token) {
-          App.setToken(data.token);
-          App.loggedInState();
-          }
-        });
+      this.$main.html(`
+        <main>
+        <h1>A Cut Above The Rest</h1>
+        <img id="" src="">
+        </main>
+        `);
+        // $("nav").hide();
       };
 
-    App.ajaxRequest = function(url, method, data, callback){
-      return $.ajax({
+      App.editorialPage = function() {
+        event.preventDefault();
+        this.$main.html(`
+          <div class="container">
+          <div class="row">
+          <div class="col-md-4 editorialOne">
+          <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-4 editorialTwo">
+          <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-4 editorialTwo">
+          <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-md-4 editorialTwo">
+          <img src"">
+          <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-4 editorialTwo">
+          <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-4 editorialTwo">
+          <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>`);
+        };
+
+        App.allBarbers = function() {
+          event.preventDefault();
+          // getBarbers();
+          this.$main.html(`
+            <h1>All Barbers</h1>
+            `);
+          };
+
+          App.logout = function() {
+            event.preventDefault();
+            this.removeToken();
+            this.loggedOutState();
+          };
+
+          App.usersIndex = function(){
+            if (event) event.preventDefault();
+            let url = `${this.apiUrl}/users`;
+            return this.ajaxRequest(url, "get", null, this.mapSetup.bind(this));
+          };
+
+
+          App.handleForm = function(){
+            event.preventDefault();
+
+            let url    = `${App.apiUrl}${$(this).attr("action")}`;
+            let method = $(this).attr("method");
+            let data   = $(this).serialize();
+
+            return App.ajaxRequest(url, method, data, (data) => {
+              console.log(data);
+              if (data.token) {
+                App.setToken(data.token);
+                App.loggedInState();
+              }
+            });
+          };
+
+          App.ajaxRequest = function(url, method, data, callback){
+            return $.ajax({
               url,
               method,
               data,

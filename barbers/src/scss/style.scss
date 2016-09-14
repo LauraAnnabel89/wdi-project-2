@@ -10,6 +10,7 @@ html, body {
 #map-canvas {
   width: 100%;
   height: 75vh;
+  border: 20px solid $camel;
 }
 
 nav {
@@ -29,4 +30,17 @@ nav {
   font-size: 20px;
   text-decoration: underline;
 }
+}
+
+.container {
+  {
+    .row {
+
+    }
+  }
+}
+}
+.col-md-4 {
+  text-align: center;
+  background-color: red;
 }
