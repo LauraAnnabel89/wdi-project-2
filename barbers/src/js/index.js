@@ -90,128 +90,145 @@ App.addInfoWindow = function(barber, marker) {
       <a href="${ barber.website}"> ${ barber.website } </a>
       <p> ${ barber.otherServices } </p>
       `});
-    this.infowindow.open(this.map, marker);
-  });
-};
-
-App.loggedOutState = function() {
-  $(".loggedOut").show();
-  $(".loggedIn").hide();
-  this.register();
-  this.homepageSetup();
-  this.allBarbers();
-};
-
-App.register = function() {
-  if (event) event.preventDefault();
-  this.$main.html(`
-    <h2>Register</h2>
-    <form method="post" action="/register">
-    <div class="form-group">
-    <input class="form-control" type="text" name="user[username]" placeholder="Username">
-    </div>
-    <div class="form-group">
-    <input class="form-control" type="email" name="user[email]" placeholder="Email">
-    </div>
-    <div class="form-group">
-    <input class="form-control" type="password" name="user[password]" placeholder="Password">
-    </div>
-    <div class="form-group">
-    <input class="form-control" type="password" name="user[passwordConfirmation]" placeholder="Password Confirmation">
-    </div>
-    <input class="btn btn-primary" type="submit" value="Register">
-    </form>`
-  );
-};
-
-App.login = function() {
-  event.preventDefault();
-  this.$main.html(`
-    <h2>Login</h2>
-    <form method="post" action="/login">
-    <div class="form-group">
-    <input class="form-control" type="email" name="email" placeholder="Email">
-    </div>
-    <div class="form-group">
-    <input class="form-control" type="password" name="password" placeholder="Password">
-    </div>
-    <input class="btn btn-primary" type="submit" value="Login">
-    </form>
-    `);
+      this.infowindow.open(this.map, marker);
+    });
   };
 
-  App.homepage = function() {
+  App.loggedOutState = function() {
+    $(".loggedOut").show();
+    $(".loggedIn").hide();
+    this.register();
+    this.homepageSetup();
+    this.allBarbers();
+  };
+
+  App.register = function() {
+    if (event) event.preventDefault();
+    this.$main.html(`
+      <h2>Register</h2>
+      <form method="post" action="/register">
+      <div class="form-group">
+      <input class="form-control" type="text" name="user[username]" placeholder="Username">
+      </div>
+      <div class="form-group">
+      <input class="form-control" type="email" name="user[email]" placeholder="Email">
+      </div>
+      <div class="form-group">
+      <input class="form-control" type="password" name="user[password]" placeholder="Password">
+      </div>
+      <div class="form-group">
+      <input class="form-control" type="password" name="user[passwordConfirmation]" placeholder="Password Confirmation">
+      </div>
+      <input class="btn btn-primary" type="submit" value="Register">
+      </form>`
+    );
+  };
+
+  App.login = function() {
     event.preventDefault();
     this.$main.html(`
-      <h1>A Cut Above The Rest</h1>
-      <img src="">
-      <a class="nav-link loggedOut ${register}" href="/signup">Sign Up</a>
-      <a class="nav-link loggedOut login" href="/login">Login</a>
+      <h2>Login</h2>
+      <form method="post" action="/login">
+      <div class="form-group">
+      <input class="form-control" type="email" name="email" placeholder="Email">
+      </div>
+      <div class="form-group">
+      <input class="form-control" type="password" name="password" placeholder="Password">
+      </div>
+      <input class="btn btn-primary" type="submit" value="Login">
+      </form>
       `);
-    $("nav").hide();
-  };
+    };
 
-  App.allBarbers = function () {
-    event.preventDefault();
-    this.$main.html(`<h1>All Barbers</h1>`);
-};
+    App.homepage = function() {
+      event.preventDefault();
+      this.$main.html(`
+        <h1>A Cut Above The Rest</h1>
+        <img src="">
+        <a class="nav-link loggedOut ${register}" href="/signup">Sign Up</a>
+        <a class="nav-link loggedOut login" href="/login">Login</a>
+        `);
+        $("nav").hide();
+      };
 
-  App.logout = function() {
-    event.preventDefault();
-    this.removeToken();
-    this.loggedOutState();
-  };
+      // App.allBarbers = function () {
+      //   event.preventDefault();
+      //   let url = `${this.apiUrl}/barbers`;
+      //   // do I need to do an ajax request here?
+      //   this.$main.html(`
+      //     <h1>All Barbers</h1>
+      //     <div class="card">
+      //     <img class="card-img-top" src="${ barber.image }" alt="Card image cap">
+      //     <div class="card-block">
+      //     <h4 class="card-title">${ barber.name }</h4>
+      //     <p class="card-text">${ barber.description }</p>
+      //     </div>
+      //     <ul class="list-group list-group-flush">
+      //     <li class="list-group-item">${ barber.vibe }</li>
+      //     <li class="list-group-item">${ barber.otherServices }</li>
+      //     </ul>
+      //     <div class="card-block">
+      //     <a href="#" class="card-link">${ barber.website }</a>
+      //     </div>
+      //     </div>`);
+      //   };
 
-  App.usersIndex = function(){
-    if (event) event.preventDefault();
-    let url = `${this.apiUrl}/users`;
-    return this.ajaxRequest(url, "get", null, this.mapSetup.bind(this));
-  };
+        App.logout = function() {
+          event.preventDefault();
+          this.removeToken();
+          this.loggedOutState();
+        };
+
+        App.usersIndex = function(){
+          if (event) event.preventDefault();
+          let url = `${this.apiUrl}/users`;
+          return this.ajaxRequest(url, "get", null, this.mapSetup.bind(this));
+        };
 
 
-App.handleForm = function(){
-  event.preventDefault();
+        App.handleForm = function(){
+          event.preventDefault();
 
-  let url    = `${App.apiUrl}${$(this).attr("action")}`;
-  let method = $(this).attr("method");
-  let data   = $(this).serialize();
+          let url    = `${App.apiUrl}${$(this).attr("action")}`;
+          let method = $(this).attr("method");
+          let data   = $(this).serialize();
 
-  return App.ajaxRequest(url, method, data, (data) => {
-    console.log(data);
-    if (data.token) {
-      App.setToken(data.token);
-      App.loggedInState();
-    }
-  });
-};
+          return App.ajaxRequest(url, method, data, (data) => {
+            console.log(data);
+            if (data.token) {
+              App.setToken(data.token);
+              App.loggedInState();
+            }
+          });
+        };
 
-App.ajaxRequest = function(url, method, data, callback){
-  return $.ajax({
-    url,
-    method,
-    data,
-    beforeSend: this.setRequestHeader.bind(this)
-  })
-  .done(callback)
-  .fail(data => {
-    console.log(data);
-  });
-};
+        App.ajaxRequest = function(url, method, data, callback){
+          return $.ajax({
+            url,
+            method,
+            data,
+            beforeSend: this.setRequestHeader.bind(this)
+          })
+          .done(callback)
+          .fail(data => {
+            console.log(data);
+          });
+        };
 
-App.setRequestHeader = function(xhr, settings) {
-  return xhr.setRequestHeader("Authorization", `Bearer ${this.getToken()}`);
-};
+        App.setRequestHeader = function(xhr, settings) {
+          return xhr.setRequestHeader("Authorization", `Bearer ${this.getToken()}`);
+        };
 
-App.setToken = function(token){
-  return window.localStorage.setItem("token", token);
-};
+        App.setToken = function(token){
+          return window.localStorage.setItem("token", token);
+        };
 
-App.getToken = function(){
-  return window.localStorage.getItem("token");
-};
+        App.getToken = function(){
+          return window.localStorage.getItem("token");
+        };
 
-App.removeToken = function(){
-  return window.localStorage.clear();
-};
+        App.removeToken = function(){
+          return window.localStorage.clear();
+        };
 
-$(App.init.bind(App));
+        $(App.init.bind(App));
