@@ -1,6 +1,9 @@
 @import "variables";
 @import "home";
 
+body {
+  background-image: url('images/whitebrick.jpg');
+}
 html, body {
   height: 100%;
   margin: 0;
@@ -10,10 +13,6 @@ html, body {
   color: $dark;
 }
 
-main {
-  background-color: $white;
-}
-
 .container {
   h2 {
     font-family: $main-font;
@@ -21,6 +20,10 @@ main {
     text-decoration: underline;
   }
 form {
+  .btn.btn-primary {
+    background-color: $green;
+    margin: 20px;
+  }
   .form-group {
     .form-control {
     font-family: $main-font;
@@ -66,11 +69,29 @@ text-align: center;
   }
 }
 
+.row {
+  height: 400px;
+  text-align: center;
+}
+#bearded {
+  height: 350px;
+  width: 275px;
+}
+#beardcare {
+  height: 300px;
+  width: 400px;
+  border: $grey 10px solid;
+}
+#brushes {
+  height: 375px;
+  width: 250px;
+}
+
 nav {
-  background-color: $white;
+  background-color: $dark;
   height: 100px;
   a {
-    color: $dark;
+    color: $white;
     font-family: $main-font;
     font-size: 15px;
     text-transform: uppercase;
@@ -81,24 +102,6 @@ nav {
 }
 }
 .navbar-brand {
-  font-size: 20px;
+  font-size: 15px;
   text-decoration: underline;
 }
-.col-md-4 {
-  font-family: $main-font;
-  padding: 20px;
-  color: $dark;
-  }
-  .card-img-top {
-    height: 250px;
-    width: 350px;
-  }
-  #one {
-   border: 15px solid $dark;
-  }
-  #two {
-    border: 15px solid $green;
-  }
-  #three {
-    border: 15px solid $grey;
-  }

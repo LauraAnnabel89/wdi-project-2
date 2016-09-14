@@ -43,162 +43,162 @@ App.mapSetup = function(){
     center: new google.maps.LatLng(51.506178,-0.088369),
     styles: [
       {
-          "featureType": "all",
-          "elementType": "labels.text.fill",
-          "stylers": [
-              {
-                  "saturation": "0"
-              },
-              {
-                  "color": "#000000"
-              },
-              {
-                  "gamma": "1.00"
-              },
-              {
-                  "weight": "0.01"
-              }
-          ]
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "saturation": "0"
+          },
+          {
+            "color": "#000000"
+          },
+          {
+            "gamma": "1.00"
+          },
+          {
+            "weight": "0.01"
+          }
+        ]
       },
       {
-          "featureType": "all",
-          "elementType": "labels.text.stroke",
-          "stylers": [
-              {
-                  "color": "#fafafa"
-              },
-              {
-                  "weight": "0.01"
-              },
-              {
-                  "visibility": "off"
-              }
-          ]
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+          {
+            "color": "#fafafa"
+          },
+          {
+            "weight": "0.01"
+          },
+          {
+            "visibility": "off"
+          }
+        ]
       },
       {
-          "featureType": "all",
-          "elementType": "labels.icon",
-          "stylers": [
-              {
-                  "visibility": "on"
-              }
-          ]
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "on"
+          }
+        ]
       },
       {
-          "featureType": "administrative",
-          "elementType": "labels.text.fill",
-          "stylers": [
-              {
-                  "color": "#444444"
-              }
-          ]
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#444444"
+          }
+        ]
       },
       {
-          "featureType": "landscape",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "color": "#f2f2f2"
-              }
-          ]
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+          {
+            "color": "#f2f2f2"
+          }
+        ]
       },
       {
-          "featureType": "poi",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "visibility": "off"
-              }
-          ]
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
       },
       {
-          "featureType": "road",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "saturation": -100
-              },
-              {
-                  "lightness": 45
-              }
-          ]
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": -100
+          },
+          {
+            "lightness": 45
+          }
+        ]
       },
       {
-          "featureType": "road.highway",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "visibility": "simplified"
-              }
-          ]
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "simplified"
+          }
+        ]
       },
       {
-          "featureType": "road.arterial",
-          "elementType": "labels.icon",
-          "stylers": [
-              {
-                  "visibility": "off"
-              }
-          ]
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
       },
       {
-          "featureType": "transit",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "visibility": "off"
-              }
-          ]
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
       },
       {
-          "featureType": "water",
-          "elementType": "all",
-          "stylers": [
-              {
-                  "color": "#fafafa"
-              },
-              {
-                  "visibility": "on"
-              }
-          ]
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+          {
+            "color": "#fafafa"
+          },
+          {
+            "visibility": "on"
+          }
+        ]
       },
       {
-          "featureType": "water",
-          "elementType": "geometry.fill",
-          "stylers": [
-              {
-                  "visibility": "on"
-              },
-              {
-                  "color": "#ffffff"
-              }
-          ]
+        "featureType": "water",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "visibility": "on"
+          },
+          {
+            "color": "#ffffff"
+          }
+        ]
       },
       {
-          "featureType": "water",
-          "elementType": "geometry.stroke",
-          "stylers": [
-              {
-                  "visibility": "on"
-              },
-              {
-                  "color": "#ffffff"
-              }
-          ]
+        "featureType": "water",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "visibility": "on"
+          },
+          {
+            "color": "#ffffff"
+          }
+        ]
       },
       {
-          "featureType": "water",
-          "elementType": "labels.text",
-          "stylers": [
-              {
-                  "visibility": "on"
-              },
-              {
-                  "color": "#000000"
-              }
-          ]
+        "featureType": "water",
+        "elementType": "labels.text",
+        "stylers": [
+          {
+            "visibility": "on"
+          },
+          {
+            "color": "#000000"
+          }
+        ]
       }
-  ]
+    ]
   };
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getBarbers();
@@ -315,63 +315,54 @@ App.addInfoWindow = function(barber, marker) {
           <div class="container">
           <div class="row">
           <div class="col-md-4">
+          <img id="bearded" src="images/bearded.jpg">
+          </div>
+          <div class="col-md-4">
           <div class="card">
-          <img class="card-img-top" id="" src="..." alt="Card image cap">
+          <img id="beardcare" class="card-img-top one" id="" src="images/beardcare.jpg" alt="Card image cap">
           <div class="card-block">
           <h4 class="card-title">Beard care 101</h4>
-          <a href="#" class="btn btn-primary">Read More...</a>
+          <a href="#">Read More...</a>
           </div>
           </div>
           </div>
           <div class="col-md-4">
-          <div class="card">
-          <img class="card-img-top" src="images/bartender.jpg" alt="Card image cap">
-          <div class="card-block">
-          <h4 class="card-title">Cocktails to impress</h4>
-          <a href="#" class="btn btn-primary">Read More...</a>
+          <img id="brushes" src="images/brushes.jpg">
           </div>
           </div>
           </div>
-          <div class="col-md-4">
-          <div class="card">
-          <img class="card-img-top" src="images/coats.jpg" alt="Card image cap">
-          <div class="card-block">
-          <h4 class="card-title">Coats roundup for AW16</h4>
-          <a href="#" class="btn btn-primary">Read More...</a>
-          </div>
-          </div>
-          </div>
+          <div class="container">
           <div class="row">
           <div class="col-md-4">
-          <img src"">
           <div class="card">
-          <img class="card-img-top" src="images/tomford.jpg" alt="Card image cap">
+          <img class="card-img-top two" src="images/bartender.jpg" alt="Card image cap">
           <div class="card-block">
-          <h4 class="card-title">What a man should own...according to Tom Ford</h4>
-          <a href="#" class="btn btn-primary">Read More...</a>
-          </div>
+          <h4 class="card-title">Cocktails to impress</h4>
+          <a href="#">Read More...</a>
           </div>
           </div>
           <div class="col-md-4">
-          <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-block">
-          <h4 class="card-title">Where to eat in Dalston</h4>
-          <a href="#" class="btn btn-primary">Read More...</a>
+          One of three columns
+          </div>
+          <div class="col-md-4">
+          One of three columns
           </div>
           </div>
           </div>
-          <div class="col-md-4 editorialTwo">
-          <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-block">
-          <h4 class="card-title">How to wear a pocket-square</h4>
-          <a href="#" class="btn btn-primary">Read More...</a>
+          <div class="container">
+          <div class="row">
+          <div class="col-md-4">
+          One of three columns
+          </div>
+          <div class="col-md-4">
+          One of three columns
+          </div>
+          <div class="col-md-4">
+          One of three columns
           </div>
           </div>
           </div>
-          </div>
-          </div>`);
+          `);
         };
 
         App.allBarbers = function() {
