@@ -10,8 +10,10 @@ App.eventListeners = function() {
   $(".register").on("click", this.register.bind(this));
   $(".login").on("click", this.login.bind(this));
   $(".logout").on("click", this.logout.bind(this));
-  $(".homepage").on("click", this.homepage.bind(this));
-  $(".barbers").on("click", this.allBarbers.bind(this));
+  $(".mapSetup").on("click", this.mapSetup.bind(this));
+  $(".homePage").on("click", this.homePage.bind(this));
+  $(".allBarbers").on("click", this.allBarbers.bind(this));
+  $(".editorialPage").on("click", this.editorialPage.bind(this));
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
 
@@ -27,6 +29,9 @@ App.loggedInState = function() {
   $(".loggedOut").hide();
   $(".loggedIn").show();
   this.mapSetup();
+  this.allBarbers();
+  this.homePage();
+  this.editorialPage();
 };
 
 App.mapSetup = function(){
@@ -42,7 +47,6 @@ App.mapSetup = function(){
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getBarbers();
 };
-
 
 App.addBarber = function() {
   console.log(Barber);
@@ -98,8 +102,6 @@ App.addInfoWindow = function(barber, marker) {
     $(".loggedOut").show();
     $(".loggedIn").hide();
     this.register();
-    this.homepageSetup();
-    this.allBarbers();
   };
 
   App.register = function() {
@@ -140,95 +142,87 @@ App.addInfoWindow = function(barber, marker) {
       `);
     };
 
-    App.homepage = function() {
+  App.homePage = function() {
+    event.preventDefault();
+    this.$main.html(`
+      <main>
+      <h1>A Cut Above The Rest</h1>
+      <img id="" src="">
+      </main>
+      `);
+    // $("nav").hide();
+    };
+
+  App.editorialPage = function() {
+    event.preventDefault();
+    this.$main.html(`
+      <h1>Editorial</h1>`);
+    };
+
+  App.allBarbers = function() {
+    event.preventDefault();
+    // getBarbers();
+    this.$main.html(`
+    <h1>All Barbers</h1>
+`);
+    };
+
+    App.logout = function() {
       event.preventDefault();
-      this.$main.html(`
-        <h1>A Cut Above The Rest</h1>
-        <img src="">
-        <a class="nav-link loggedOut ${register}" href="/signup">Sign Up</a>
-        <a class="nav-link loggedOut login" href="/login">Login</a>
-        `);
-        $("nav").hide();
+      this.removeToken();
+      this.loggedOutState();
+    };
+
+    App.usersIndex = function(){
+      if (event) event.preventDefault();
+      let url = `${this.apiUrl}/users`;
+      return this.ajaxRequest(url, "get", null, this.mapSetup.bind(this));
+    };
+
+
+    App.handleForm = function(){
+      event.preventDefault();
+
+      let url    = `${App.apiUrl}${$(this).attr("action")}`;
+      let method = $(this).attr("method");
+      let data   = $(this).serialize();
+
+      return App.ajaxRequest(url, method, data, (data) => {
+        console.log(data);
+        if (data.token) {
+          App.setToken(data.token);
+          App.loggedInState();
+          }
+        });
       };
 
-      // App.allBarbers = function () {
-      //   event.preventDefault();
-      //   let url = `${this.apiUrl}/barbers`;
-      //   // do I need to do an ajax request here?
-      //   this.$main.html(`
-      //     <h1>All Barbers</h1>
-      //     <div class="card">
-      //     <img class="card-img-top" src="${ barber.image }" alt="Card image cap">
-      //     <div class="card-block">
-      //     <h4 class="card-title">${ barber.name }</h4>
-      //     <p class="card-text">${ barber.description }</p>
-      //     </div>
-      //     <ul class="list-group list-group-flush">
-      //     <li class="list-group-item">${ barber.vibe }</li>
-      //     <li class="list-group-item">${ barber.otherServices }</li>
-      //     </ul>
-      //     <div class="card-block">
-      //     <a href="#" class="card-link">${ barber.website }</a>
-      //     </div>
-      //     </div>`);
-      //   };
+    App.ajaxRequest = function(url, method, data, callback){
+      return $.ajax({
+              url,
+              method,
+              data,
+              beforeSend: this.setRequestHeader.bind(this)
+            })
+            .done(callback)
+            .fail(data => {
+              console.log(data);
+            });
+          };
 
-        App.logout = function() {
-          event.preventDefault();
-          this.removeToken();
-          this.loggedOutState();
-        };
+          App.setRequestHeader = function(xhr, settings) {
+            return xhr.setRequestHeader("Authorization", `Bearer ${this.getToken()}`);
+          };
 
-        App.usersIndex = function(){
-          if (event) event.preventDefault();
-          let url = `${this.apiUrl}/users`;
-          return this.ajaxRequest(url, "get", null, this.mapSetup.bind(this));
-        };
+          App.setToken = function(token){
+            return window.localStorage.setItem("token", token);
+          };
 
+          App.getToken = function(){
+            return window.localStorage.getItem("token");
+          };
 
-        App.handleForm = function(){
-          event.preventDefault();
+          App.removeToken = function(){
+            return window.localStorage.clear();
+          };
 
-          let url    = `${App.apiUrl}${$(this).attr("action")}`;
-          let method = $(this).attr("method");
-          let data   = $(this).serialize();
-
-          return App.ajaxRequest(url, method, data, (data) => {
-            console.log(data);
-            if (data.token) {
-              App.setToken(data.token);
-              App.loggedInState();
-            }
-          });
-        };
-
-        App.ajaxRequest = function(url, method, data, callback){
-          return $.ajax({
-            url,
-            method,
-            data,
-            beforeSend: this.setRequestHeader.bind(this)
-          })
-          .done(callback)
-          .fail(data => {
-            console.log(data);
-          });
-        };
-
-        App.setRequestHeader = function(xhr, settings) {
-          return xhr.setRequestHeader("Authorization", `Bearer ${this.getToken()}`);
-        };
-
-        App.setToken = function(token){
-          return window.localStorage.setItem("token", token);
-        };
-
-        App.getToken = function(){
-          return window.localStorage.getItem("token");
-        };
-
-        App.removeToken = function(){
-          return window.localStorage.clear();
-        };
-
-        $(App.init.bind(App));
+          $(App.init.bind(App));

@@ -5,7 +5,7 @@ const authentications = require("../controllers/authentications");
 const users           = require("../controllers/users");
 const barbers         = require("../controllers/barbers");
 
-router.route("/signup")
+router.route("/register")
   .post(authentications.register);
 router.route("/login")
   .post(authentications.login);
