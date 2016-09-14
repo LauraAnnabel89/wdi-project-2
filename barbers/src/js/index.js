@@ -315,7 +315,7 @@ App.addInfoWindow = function(barber, marker) {
           <div class="container">
           <div class="row">
           <div class="col-md-4">
-          <img id="bearded" src="images/bearded.jpg">
+          <img id="quote" src="images/quote.jpg">
           </div>
           <div class="col-md-4">
           <div class="card">
@@ -331,36 +331,50 @@ App.addInfoWindow = function(barber, marker) {
           </div>
           </div>
           </div>
+
+
           <div class="container">
           <div class="row">
+          <div class="col-sm-4">
+          <div class="card">
+          <img id="tomford" class="card-img-top two" src="images/tomford.jpg" alt="Card image cap">
+          <div class="card-block">
+          <h4 class="card-title">What a man should own...according to Tom Ford</h4>
+          <a href="#">Read More...</a>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-4">
+          <img id="logo" src="images/logo.jpg">
+          </div>
           <div class="col-md-4">
           <div class="card">
-          <img class="card-img-top two" src="images/bartender.jpg" alt="Card image cap">
+          <img id="bartender" class="card-img-top two" src="images/bartender.jpg" alt="Card image cap">
           <div class="card-block">
           <h4 class="card-title">Cocktails to impress</h4>
           <a href="#">Read More...</a>
           </div>
           </div>
-          <div class="col-md-4">
-          One of three columns
           </div>
-          <div class="col-md-4">
-          One of three columns
-          </div>
-          </div>
-          </div>
+
           <div class="container">
-          <div class="row">
-          <div class="col-md-4">
-          One of three columns
-          </div>
-          <div class="col-md-4">
-          One of three columns
-          </div>
-          <div class="col-md-4">
-          One of three columns
-          </div>
-          </div>
+            <div class="row">
+            <div class="col-md-4">
+            <img id="wallbrushes" src="images/wallbrushes.jpg">
+            </div>
+              <div class="col-sm-4">
+              <img id="bearded" src="images/bearded.jpg">
+              </div>
+              <div class="col-sm-4">
+              <div class="card">
+              <img id="pocketsquare" class="card-img-top one" src="images/pocketsquare.jpg" alt="Card image cap">
+              <div class="card-block">
+              <h4 class="card-title">How to wear a pocket-square</h4>
+              <a href="#">Read More...</a>
+              </div>
+              </div>
+              </div>
+            </div>
           </div>
           `);
         };

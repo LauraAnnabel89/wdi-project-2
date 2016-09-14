@@ -79,14 +79,26 @@ text-align: center;
 }
 #beardcare {
   height: 300px;
-  width: 400px;
+  width: 375px;
   border: $grey 10px solid;
 }
 #brushes {
   height: 375px;
   width: 250px;
 }
-
+#bartender {
+  height: 250px;
+  width: 350px;
+  border: $dark 10px solid;
+}
+#logo {
+  height: 300px;
+  width: 300px;
+}
+#tomford {
+  height: 200px;
+  width: 350px;
+}
 nav {
   background-color: $dark;
   height: 100px;
