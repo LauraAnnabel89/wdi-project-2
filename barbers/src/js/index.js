@@ -76,7 +76,7 @@ App.createMarkerForBarber = function(index, barber) {
   let marker = new google.maps.Marker({
     position: latlng,
     map:      App.map,
-    icon: "/images/marker.gif",
+    icon: "./src/images/marker.gif",
     // animation: google.maps.Animation.DROP
   });
   App.addInfoWindow(barber, marker);

@@ -1,1 +1,1 @@
-body,html,main{background-image:url(https/www.msistone.com/images/PorcelainCeramic/White-Brick-Capella-Porcelain.jpg)}body,html{height:100%;margin:0;padding:0}#map-canvas{width:100%;height:100vh}nav{background-color:#fff}h1{color:red}
+body,html{height:100%;margin:0;padding:0;color:#F9F8F8}#map-canvas{width:100%;height:75vh}nav{background-color:#F9F8F8;height:100px}nav a{color:#2c3130;font-family:Montserrat,sans-serif;font-size:15px;text-transform:uppercase;margin-top:20px}nav a .active{color:#357266}nav .navbar-brand{font-size:20px;text-decoration:underline}
