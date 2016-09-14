@@ -76,7 +76,7 @@ App.createMarkerForBarber = function(index, barber) {
   let marker = new google.maps.Marker({
     position: latlng,
     map:      App.map,
-    icon: "./src/images/marker.gif",
+    // icon: "./images/bartender.jpg",
     // animation: google.maps.Animation.DROP
   });
   App.addInfoWindow(barber, marker);
@@ -158,45 +158,50 @@ App.addInfoWindow = function(barber, marker) {
         this.$main.html(`
           <div class="container">
           <div class="row">
-          <div class="col-md-4 editorialOne">
+          <div class="col-md-4">
           <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <img class="card-img-top" id="" src="..." alt="Card image cap">
           <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h4 class="card-title">Beard care 101</h4>
+          <a href="#" class="btn btn-primary">Read More...</a>
           </div>
           </div>
           </div>
-          <div class="col-md-4 editorialTwo">
+          <div class="col-md-4">
           <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <img class="card-img-top" src="images/bartender.jpg" alt="Card image cap">
           <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h4 class="card-title">Cocktails to impress</h4>
+          <a href="#" class="btn btn-primary">Read More...</a>
           </div>
           </div>
           </div>
-          <div class="col-md-4 editorialTwo">
+          <div class="col-md-4">
           <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <img class="card-img-top" src="images/coats.jpg" alt="Card image cap">
           <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h4 class="card-title">Coats roundup for AW16</h4>
+          <a href="#" class="btn btn-primary">Read More...</a>
           </div>
           </div>
           </div>
           <div class="row">
-          <div class="col-md-4 editorialTwo">
+          <div class="col-md-4">
           <img src"">
           <div class="card">
+          <img class="card-img-top" src="images/tomford.jpg" alt="Card image cap">
+          <div class="card-block">
+          <h4 class="card-title">What a man should own...according to Tom Ford</h4>
+          <a href="#" class="btn btn-primary">Read More...</a>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-4">
+          <div class="card">
           <img class="card-img-top" src="..." alt="Card image cap">
           <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h4 class="card-title">Where to eat in Dalston</h4>
+          <a href="#" class="btn btn-primary">Read More...</a>
           </div>
           </div>
           </div>
@@ -204,19 +209,8 @@ App.addInfoWindow = function(barber, marker) {
           <div class="card">
           <img class="card-img-top" src="..." alt="Card image cap">
           <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-          </div>
-          </div>
-          <div class="col-md-4 editorialTwo">
-          <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h4 class="card-title">How to wear a pocket-square</h4>
+          <a href="#" class="btn btn-primary">Read More...</a>
           </div>
           </div>
           </div>

@@ -31,16 +31,10 @@ nav {
   text-decoration: underline;
 }
 }
-
-.container {
-  {
-    .row {
-
-    }
-  }
-}
-}
 .col-md-4 {
   text-align: center;
-  background-color: red;
+  .card-img-top {
+    height: 300px;
+    width: 400px;
+  }
 }
