@@ -62,7 +62,7 @@ App.mapSetup = function(){
   let mapOptions = {
     zoom: 13,
     center: new google.maps.LatLng(51.506178,-0.088369),
-    styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+    styles: [{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}]
   };
   this.map = new google.maps.Map(canvas, mapOptions);
   this.getBarbers(this.loopThroughBarbers);
@@ -104,8 +104,8 @@ App.createMarkerForBarber = function(index, barber) {
   let marker = new google.maps.Marker({
     position: latlng,
     map:      App.map,
-    icon:     icon
-    // animation: google.maps.Animation.DROP
+    icon:     icon,
+    animation: google.maps.Animation.DROP,
   });
   App.addInfoWindow(barber, marker);
 };
@@ -183,14 +183,35 @@ App.addInfoWindow = function(barber, marker) {
           <div id="editorial-container" class="container">
           <div class="row">
           <div class="col-md-4">
-          <img id="quote" src="images/quote.jpg">
+          <img id="photobooth" src="images/photobooth.jpg">
           </div>
           <div class="col-md-4">
           <div class="card">
-          <img id="beardcare" class="card-img-top one" id="" src="images/beardcare.jpg" alt="Card image cap">
+          <h4 class="card-title">What every gentleman should own...according to Tom Ford</h4>
+          <img id="tomford" class="card-img-top two" src="images/tomford.jpg" alt="Card image cap">
           <div class="card-block">
-          <h4 class="card-title">Beard care 101</h4>
-          <a id="beardcareEditorial" href="#">Read More...</a>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Read More...
+          </button>
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">What every gentleman should own...according to Tom Ford</h4>
+          </div>
+          <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+          </div>
+          </div>
+          </div>
           </div>
           </div>
           </div>
@@ -199,18 +220,18 @@ App.addInfoWindow = function(barber, marker) {
           </div>
           </div>
           </div>
-          <div class="container">
+
+          <div id="editorial-container" class="container">
           <div class="row">
           <div class="col-md-4">
           <div class="card">
-          <img id="tomford" class="card-img-top two" src="images/tomford.jpg" alt="Card image cap">
+          <h4 class="card-title">The Best of...Whisky Cocktails</h4>
+          <img id="bartender" class="card-img-top two" src="images/bartender.jpg" alt="Card image cap">
           <div class="card-block">
-          <h4 class="card-title">What a man should own...according to Tom Ford</h4>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
           Read More...
           </button>
-          <!-- Modal -->
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -218,14 +239,13 @@ App.addInfoWindow = function(barber, marker) {
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          <h4 class="modal-title" id="myModalLabel">The Best of...Whisky Cocktails</h4>
           </div>
           <div class="modal-body">
-          ...
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
           </div>
           </div>
           </div>
@@ -233,51 +253,99 @@ App.addInfoWindow = function(barber, marker) {
           </div>
           </div>
           </div>
-          <div class="col-md-4">
-          <img id="logo" src="images/logo.jpg">
-          </div>
-          <div class="col-md-4">
-          <div class="card">
-          <img id="pocketsquare" class="card-img-top one" src="images/pocketsquare.jpg" alt="Card image cap">
-          <div class="card-block">
-          <h4 class="card-title">How to wear a pocket-square</h4>
-          <a href="#">Read More...</a>
-          </div>
-          </div>
-          </div>
-          </div>
-          </div>
-          <div class="container">
-          <div class="row">
           <div class="col-md-4">
           <img id="bearded" src="images/bearded.jpg">
           </div>
           <div class="col-md-4">
           <img id="wallbrushes" src="images/wallbrushes.jpg">
           </div>
-          <div class="col-md-4">
-          <div class="card">
-          <img id="bartender" class="card-img-top two" src="images/bartender.jpg" alt="Card image cap">
-          <div class="card-block">
-          <h4 class="card-title">The best Whiskey Cocktails</h4>
-          <a href="#">Read More...</a>
           </div>
           </div>
-          </div>
-          </div>
-          </div>
-          <div class="container">
+
+          <div id="editorial-container" class="container">
           <div class="row">
           <div class="col-md-4">
+          <img id="quote" src="images/quote.jpg">
           </div>
+          <div class="col-md-4">
+          <img id="logo" src="images/logo.jpg">
+          </div>
+          <div class="col-md-4">
           <div class="card">
+          <h4 class="card-title">Beard care 101</h4>
+          <img id="beardcare" class="card-img-top one" id="" src="images/beardcare.jpg" alt="Card image cap">
           <div class="card-block">
-          <h4 class="card-title">Cocktails to impress</h4>
-          <a href="#">Read More...</a>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Read More...
+          </button>
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Beard care 101</h4>
+          </div>
+          <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
           </div>
           </div>
           </div>
+          </div>
+          </div>
+          </div>
+
+          </div>
+          </div>
+
+          <div id="editorial-container" class="container">
+          <div class="row">
+          <div class="col-md-4">
+          <img id="handsome" src="images/handsome.jpg">
+          </div>
+          <div class="col-md-4">
+          <div class="card">
+          <h4 class="card-title">London Collection Mens - The Outerwear Round Up</h4>
+          <img id="coats" class="card-img-top one" id="" src="images/coats.jpg" alt="Card image cap">
+          <div class="card-block">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Read More...
+          </button>
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">London Collection Mens - The Outerwear Round Up</h4>
+          </div>
+          <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary editorialButton" data-dismiss="modal">Close</button>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-4">
+          <img id="sign" src="images/sign.jpg">
+          </div>
+          </div>
+          </div>
+
+
           `);
         };
 
