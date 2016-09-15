@@ -68,11 +68,17 @@ text-align: center;
     margin-bottom: 15px;
   }
 }
-
-.row {
+.card {
+  margin: 50px;
+  margin: 0 auto;
+}
+.container {
   height: 400px;
   text-align: center;
+  margin-bottom: 50px;
+  margin-top: 75px;
 }
+
 #bearded {
   height: 350px;
   width: 275px;
@@ -98,6 +104,11 @@ text-align: center;
 #tomford {
   height: 200px;
   width: 350px;
+}
+
+#pocketsquare {
+  width: 250px;
+  height: 250px;
 }
 nav {
   background-color: $dark;
