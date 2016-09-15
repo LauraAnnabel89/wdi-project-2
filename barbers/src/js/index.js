@@ -17,7 +17,6 @@ App.eventListeners = function() {
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
   $('.modal').on('show.bs.modal', this.showBarberModal);
-  // $("#beardcareEditorial").on("click", this.showEditorialContent);
 
   if(this.getToken()){
     this.loggedInState();
@@ -25,13 +24,6 @@ App.eventListeners = function() {
     this.loggedOutState();
   }
 };
-
-// App.showEditorialContent = function () {
-//   $("#beardcareEditorial").on('shown.bs.modal', function () {
-//     modal.find('.modal-title').html(`<h1>Beard Care 101</h1>`);
-//     modal.find('.modal-body').html();
-// });
-// };
 
 App.showBarberModal = function() {
   let button = $(event.target);
