@@ -7,7 +7,6 @@ App.init = function() {
 };
 
 App.eventListeners = function() {
-  $("#loginLink").on("click", this.login.bind(this));
   $(".register").on("click", this.register.bind(this));
   $(".login").on("click", this.login.bind(this));
   $(".logout").on("click", this.logout.bind(this));
@@ -18,7 +17,6 @@ App.eventListeners = function() {
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
   $('.modal').on('show.bs.modal', this.showBarberModal);
-  $("#loginLink").on("click", this.login.bind(this));
 
   if(this.getToken()){
     this.loggedInState();
@@ -35,6 +33,7 @@ App.showBarberModal = function() {
   App.ajaxRequest(`${App.apiUrl}/barbers/${id}`, "GET", null, (data) => {
     let barber = data.barber;
     modal.find('.modal-title').text(barber.name);
+    modal.find('.modal-body').html(`<p>${barber.description}</p>`);
     modal.find('.modal-body').html(`<p>${barber.description}</p>`);
   });
 };
@@ -251,18 +250,16 @@ App.addInfoWindow = function(barber, marker) {
 
         App.allBarbers = function() {
           event.preventDefault();
-          // getBarbers();
           this.getBarbers((data) => {
             this.$main.html(`
               <h1>All Barbers</h1>
               <ul></ul>
+
               `);
-
               let $ul = this.$main.find("ul");
-
               $.each(data.barbers, (i, barber) => {
                 $ul.append(`
-                  <li><a href="#" data-toggle="modal" data-target=".modal" data-id="${barber._id}"><img src="${barber.image}"</a></li>`);
+                  <li><a href="#" data-toggle="modal" data-target=".modal" data-id="${barber._id}">${barber.name}<img id="barberslist" src="${barber.image}"</a></li>`);
                 });
               });
             };
