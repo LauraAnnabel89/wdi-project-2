@@ -17,6 +17,7 @@ App.eventListeners = function() {
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
   $('.modal').on('show.bs.modal', this.showBarberModal);
+  // $("#beardcareEditorial").on("click", this.showEditorialContent);
 
   if(this.getToken()){
     this.loggedInState();
@@ -24,6 +25,13 @@ App.eventListeners = function() {
     this.loggedOutState();
   }
 };
+
+// App.showEditorialContent = function () {
+//   $("#beardcareEditorial").on('shown.bs.modal', function () {
+//     modal.find('.modal-title').html(`<h1>Beard Care 101</h1>`);
+//     modal.find('.modal-body').html();
+// });
+// };
 
 App.showBarberModal = function() {
   let button = $(event.target);
@@ -37,6 +45,8 @@ App.showBarberModal = function() {
     modal.find('.modal-body').html(`<p>${barber.description}</p>`);
   });
 };
+
+
 
 App.loggedInState = function() {
   $(".loggedOut").hide();
@@ -180,7 +190,7 @@ App.addInfoWindow = function(barber, marker) {
           <img id="beardcare" class="card-img-top one" id="" src="images/beardcare.jpg" alt="Card image cap">
           <div class="card-block">
           <h4 class="card-title">Beard care 101</h4>
-          <a href="#">Read More...</a>
+          <a id="beardcareEditorial" href="#">Read More...</a>
           </div>
           </div>
           </div>
@@ -196,7 +206,30 @@ App.addInfoWindow = function(barber, marker) {
           <img id="tomford" class="card-img-top two" src="images/tomford.jpg" alt="Card image cap">
           <div class="card-block">
           <h4 class="card-title">What a man should own...according to Tom Ford</h4>
-          <a href="#">Read More...</a>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Read More...
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+          ...
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+          </div>
+          </div>
+          </div>
           </div>
           </div>
           </div>
