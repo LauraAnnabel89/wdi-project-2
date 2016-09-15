@@ -5,6 +5,9 @@
 body {
   background-image: url('/images/whitebrick.jpg');
 }
+.nav {
+  margin-left: 360px;
+}
 .cardOne {
   background-color: $dark;
   padding-top: 15px;
@@ -18,22 +21,48 @@ body {
   width: 375px;
 }
 
+.cardThree {
+  background-color: $dark;
+  padding-top: 15px;
+  border-radius: 10px;
+  width: 375px;
+}
+
+.cardFour {
+  background-color: $white;
+  padding-top: 15px;
+  border-radius: 10px;
+  width: 375px;
+}
+
 .card-titleOne {
   font-size: 19px;
   border-top: 1px solid $white;
   border-bottom: 1px solid $white;
   margin-bottom: 30px;
-  color: white;
+  color: $white;
   margin: 15px;
 }
 
 .card-titleTwo {
-  font-size: 19px;
+  font-size: 21px;
+  border-top: 1px solid #2c3130;
+  border-bottom: 1px solid #2c3130;
+  color: #2c3130;
+  margin: 20px
+}
+
+.card-titleThree {
+  font-size: 21px;
+  border-top: 1px solid $white;
+  border-bottom: 1px solid $white;
+  color: $white;
+}
+.card-titleFour {
+  font-size: 21px;
   border-top: 1px solid $dark;
   border-bottom: 1px solid $dark;
-  margin-bottom: 30px;
-  color: white;
-  margin: 15px;
+  color: $dark;
 }
 
 ul {
@@ -76,11 +105,31 @@ html, body {
 
 button {
   background-color: $dark;
+  color: $white;
   border: none;
   font-family: $main-font;
   text-transform: uppercase;
   font-size: 15px;
   margin: 10px;
+}
+
+.btn-primary {
+  background-color: $dark;
+  color: $white;
+  border: none;
+  font-family: $main-font;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin: 10px;
+  :active {
+    background-color: $dark;
+    color: $white;
+    border: none;
+    font-family: $main-font;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: 10px;
+  }
 }
 button{
   :active {
@@ -95,7 +144,7 @@ button{
 }
 
 .modal-header {
-  font-size: 20px
+  font-size: 20px;
   color: $dark;
 }
 
@@ -174,17 +223,16 @@ button{
 }
 
 #beardcare {
+  margin-bottom: -20px;
   height: 300px;
   width: 375px;
-  border: $grey 15px solid;
-  border-radius: 10px;
+  border-radius: 0;
 }
 
 #coats {
   height: 300px;
   width: 375px;
-  border: $grey 15px solid;
-  border-radius: 10px;
+  border-radius: 0;
 }
 
 #brushes {
@@ -194,8 +242,8 @@ button{
 }
 #bartender {
   height: 300px;
-  width: 360px;
-  border-radius: 10px;
+  width: 375px;
+  border-radius: 0;
 }
 #logo {
   height: 350px;
@@ -205,6 +253,7 @@ button{
 #tomford {
   height: 250px;
   width: 360px;
+  border-radius: 0;
 }
 
 #wallbrushes {

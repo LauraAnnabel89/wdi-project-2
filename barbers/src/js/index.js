@@ -266,8 +266,8 @@ App.addInfoWindow = function(barber, marker) {
           <img id="logo" src="images/logo.jpg">
           </div>
           <div class="col-md-4">
-          <div class="card">
-          <h4 class="card-title">Beard care 101</h4>
+          <div class="cardThree">
+          <h4 class="card-titleThree">Beard care 101</h4>
           <img id="beardcare" class="card-img-top one" id="" src="images/beardcare.jpg" alt="Card image cap"> class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
           <div class="card-block">
           <!-- Button trigger modal -->
@@ -305,8 +305,8 @@ App.addInfoWindow = function(barber, marker) {
           <img id="handsome" src="images/handsome.jpg">
           </div>
           <div class="col-md-4">
-          <div class="card">
-          <h4 class="card-title">London Collection Mens - The Outerwear Round Up</h4>
+          <div class="cardFour">
+          <h4 class="card-titleFour">London Collection Mens - The Outerwear Round Up</h4>
           <img id="coats" class="card-img-top one" id="" src="images/coats.jpg" alt="Card image cap">
           <div class="card-block">
           <!-- Button trigger modal -->
