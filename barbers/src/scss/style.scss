@@ -6,6 +6,24 @@ body {
   background-image: url('/images/whitebrick.jpg');
 }
 
+.cardOne {
+  background-color: $dark;
+  padding-top: 15px;
+  border-radius: 10px
+}
+
+.card-title {
+  font-size: 17px;
+  border-top: 1px solid black;
+  text-decoration: underline;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 img {
   border-radius: 10px;
 }
@@ -47,6 +65,9 @@ html, body {
   margin: 20px;
 }
 
+.modal-body {
+  text-align: center;
+}
 #barberslist {
   height: 200px;
   width: 200px;
@@ -61,7 +82,7 @@ html, body {
 #map-canvas {
   width: 100%;
   height: 75vh;
-  border: 15px solid $camel;
+  border: 10px solid $camel;
   border-radius: 10px;
 }
 
@@ -153,10 +174,8 @@ html, body {
   border-radius: 10px;
 }
 #tomford {
-  height: 300px;
-  width: 375px;
-  border: $dark 15px solid;
-  border-radius: 10px;
+  height: 250px;
+  width: 360px;
 }
 
 #wallbrushes {
@@ -234,20 +253,20 @@ footer {
   padding: 30px;
 }
 
-// @media only screen and (max-width: 640px) {
-//   main .column {
-//     width: 100%;
-//   }
-// }
-//
-// @media only screen and (max-width: 640px) {
-//   main .column {
-//     width: 100%;
-//   }
-// }
-//
-// @media only screen and (max-width: 640px) {
-//   main .column {
-//     width: 100%;
-//   }
-// }
+.tile {
+
+  margin: 10px;
+  li {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  h1 {
+    font-size: 15px;
+  }
+  .navbar-nav {
+    line-height: 20px;
+  }
+}

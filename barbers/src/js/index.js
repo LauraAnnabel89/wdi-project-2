@@ -26,15 +26,18 @@ App.eventListeners = function() {
 };
 
 App.showBarberModal = function() {
-  let button = $(event.target);
+  let button = $(event.target).parent();
   let modal  = $(this);
   let id     = button.data("id");
 
   App.ajaxRequest(`${App.apiUrl}/barbers/${id}`, "GET", null, (data) => {
     let barber = data.barber;
     modal.find('.modal-title').text(barber.name);
-    modal.find('.modal-body').html(`<p>${barber.description}</p>`);
-    modal.find('.modal-body').html(`<p>${barber.description}</p>`);
+    modal.find('.modal-body').html(`<p>${barber.vibe}</p>
+      <img id="barberslist" src="${barber.image}">
+      <p>${barber.description}</p>
+      <p>${barber.otherServices}</p>
+      <p>${barber.website}</p>`);
   });
 };
 
@@ -178,7 +181,7 @@ App.addInfoWindow = function(barber, marker) {
           <img id="photobooth" src="images/photobooth.jpg">
           </div>
           <div class="col-md-4">
-          <div class="card">
+          <div class="cardOne">
           <h4 class="card-title">What every gentleman should own...according to Tom Ford</h4>
           <img id="tomford" class="card-img-top two" src="images/tomford.jpg" alt="Card image cap">
           <div class="card-block">
@@ -265,7 +268,7 @@ App.addInfoWindow = function(barber, marker) {
           <div class="col-md-4">
           <div class="card">
           <h4 class="card-title">Beard care 101</h4>
-          <img id="beardcare" class="card-img-top one" id="" src="images/beardcare.jpg" alt="Card image cap">
+          <img id="beardcare" class="card-img-top one" id="" src="images/beardcare.jpg" alt="Card image cap"> class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
           <div class="card-block">
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -346,13 +349,23 @@ App.addInfoWindow = function(barber, marker) {
           this.getBarbers((data) => {
             this.$main.html(`
               <h1>All Barbers</h1>
-              <ul></ul>
+              <ul class="row"></ul>
 
               `);
               let $ul = this.$main.find("ul");
               $.each(data.barbers, (i, barber) => {
                 $ul.append(`
-                  <li><a href="#" data-toggle="modal" data-target=".modal" data-id="${barber._id}">${barber.name}<img id="barberslist" src="${barber.image}"</a></li>`);
+                  <li class="col-md-4">
+                    <ul class="tile">
+                      <li>
+                        <a href="#" data-toggle="modal" data-target=".modal" data-id="${barber._id}">
+                          <img id="barberslist" src="${barber.image}">
+                          <h5 id="babersnames">${barber.name}</h5>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  `);
                 });
               });
             };
