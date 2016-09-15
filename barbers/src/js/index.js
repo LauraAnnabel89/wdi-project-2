@@ -182,7 +182,7 @@ App.addInfoWindow = function(barber, marker) {
           </div>
           <div class="col-md-4">
           <div class="cardOne">
-          <h4 class="card-title">What every gentleman should own...according to Tom Ford</h4>
+          <h4 class="card-titleOne">What every gentleman should own...according to Tom Ford</h4>
           <img id="tomford" class="card-img-top two" src="images/tomford.jpg" alt="Card image cap">
           <div class="card-block">
           <!-- Button trigger modal -->
@@ -219,8 +219,8 @@ App.addInfoWindow = function(barber, marker) {
           <div id="editorial-container" class="container">
           <div class="row">
           <div class="col-md-4">
-          <div class="card">
-          <h4 class="card-title">The Best of...Whisky Cocktails</h4>
+          <div class="cardTwo">
+          <h4 class="card-titleTwo">The Best of...Whisky Cocktails</h4>
           <img id="bartender" class="card-img-top two" src="images/bartender.jpg" alt="Card image cap">
           <div class="card-block">
           <!-- Button trigger modal -->
@@ -348,7 +348,6 @@ App.addInfoWindow = function(barber, marker) {
           event.preventDefault();
           this.getBarbers((data) => {
             this.$main.html(`
-              <h1>All Barbers</h1>
               <ul class="row"></ul>
 
               `);

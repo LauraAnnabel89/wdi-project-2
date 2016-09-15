@@ -5,17 +5,35 @@
 body {
   background-image: url('/images/whitebrick.jpg');
 }
-
 .cardOne {
   background-color: $dark;
   padding-top: 15px;
   border-radius: 10px
 }
 
-.card-title {
-  font-size: 17px;
-  border-top: 1px solid black;
-  text-decoration: underline;
+.cardTwo {
+  background-color: $white;
+  padding-top: 15px;
+  border-radius: 10px;
+  width: 375px;
+}
+
+.card-titleOne {
+  font-size: 19px;
+  border-top: 1px solid $white;
+  border-bottom: 1px solid $white;
+  margin-bottom: 30px;
+  color: white;
+  margin: 15px;
+}
+
+.card-titleTwo {
+  font-size: 19px;
+  border-top: 1px solid $dark;
+  border-bottom: 1px solid $dark;
+  margin-bottom: 30px;
+  color: white;
+  margin: 15px;
 }
 
 ul {
@@ -56,27 +74,45 @@ html, body {
   }
 }
 
-.btn-primary {
+button {
   background-color: $dark;
   border: none;
   font-family: $main-font;
   text-transform: uppercase;
   font-size: 15px;
-  margin: 20px;
+  margin: 10px;
+}
+button{
+  :active {
+    background-color: $dark;
+  }
 }
 
 .modal-body {
   text-align: center;
+  background-color: $white;
+  color: $dark;
 }
+
+.modal-header {
+  font-size: 20px
+  color: $dark;
+}
+
 #barberslist {
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
 }
 
 #chair {
   width: 100%;
-  height: 100%;
+  height: 50%;
   padding: 0;
+}
+
+#babersnames{
+  color: $dark;
+  font-size: 15px;
 }
 
 #map-canvas {
@@ -117,27 +153,23 @@ html, body {
   margin-top: 75px;
 }
 #quote {
-  border: $grey 15px solid;
   border-radius: 10px;
 }
 #photobooth {
   height: 450px;
   width: 250px;
-  border: $white 10px solid;
   border-radius: 10px;
 }
 
 #bearded {
   height: 350px;
   width: 275px;
-  border: $grey 15px solid;
   border-radius: 10px;
 }
 
 #sign {
   height: 350px;
   width: 300px;
-  border: $dark 15px solid;
   border-radius: 10px;
 }
 
@@ -158,19 +190,16 @@ html, body {
 #brushes {
   height: 375px;
   width: 250px;
-  border: $grey 15px solid;
   border-radius: 10px;
 }
 #bartender {
   height: 300px;
-  width: 375px;
-  border: $dark 15px solid;
+  width: 360px;
   border-radius: 10px;
 }
 #logo {
   height: 350px;
   width: 350px;
-  border: $white 15px solid;
   border-radius: 10px;
 }
 #tomford {
@@ -181,14 +210,12 @@ html, body {
 #wallbrushes {
   height: 350px;
   width: 275px;
-  border: $white 15px solid;
   border-radius: 10px;
 }
 
 #handsome {
   width: 350px;
   height: 350px;
-  border: $white 15px solid;
   border-radius: 10px;
 }
 .navbar-nav {
@@ -265,8 +292,5 @@ footer {
 @media only screen and (max-width: 640px) {
   h1 {
     font-size: 15px;
-  }
-  .navbar-nav {
-    line-height: 20px;
   }
 }
