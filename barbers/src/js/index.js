@@ -16,7 +16,7 @@ App.eventListeners = function() {
   $(".editorialPage").on("click", this.editorialPage.bind(this));
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   this.$main.on("submit", "form", this.handleForm);
-
+  $('.modal').on('show.bs.modal', this.showBarberModal);
 
   if(this.getToken()){
     this.loggedInState();
@@ -25,13 +25,23 @@ App.eventListeners = function() {
   }
 };
 
+App.showBarberModal = function() {
+  let button = $(event.target);
+  let modal  = $(this);
+  let id     = button.data("id");
+
+  App.ajaxRequest(`${App.apiUrl}/barbers/${id}`, "GET", null, (data) => {
+    let barber = data.barber;
+    modal.find('.modal-title').text(barber.name);
+    modal.find('.modal-body').html(`<p>${barber.description}</p>`);
+  });
+};
+
 App.loggedInState = function() {
   $(".loggedOut").hide();
   $(".loggedIn").show();
-  this.mapSetup();
-  this.allBarbers();
+
   this.homePage();
-  this.editorialPage();
 };
 
 App.mapSetup = function(){
@@ -201,7 +211,7 @@ App.mapSetup = function(){
     ]
   };
   this.map = new google.maps.Map(canvas, mapOptions);
-  this.getBarbers();
+  this.getBarbers(this.loopThroughBarbers);
 };
 
 App.addBarber = function() {
@@ -218,8 +228,8 @@ App.addBarber = function() {
   });
 };
 
-App.getBarbers = function (){
-  return this.ajaxRequest(`${this.apiUrl}/barbers`, "GET", null, this.loopThroughBarbers);
+App.getBarbers = function(callback){
+  return this.ajaxRequest(`${this.apiUrl}/barbers`, "GET", null, callback);
 };
 
 App.loopThroughBarbers = function(data) {
@@ -419,10 +429,19 @@ App.addInfoWindow = function(barber, marker) {
         App.allBarbers = function() {
           event.preventDefault();
           // getBarbers();
-          this.$main.html(`
-            <h1>All Barbers</h1>
+          this.getBarbers((data) => {
+            this.$main.html(`
+              <h1>All Barbers</h1>
+              <ul></ul>
             `);
-          };
+
+            let $ul = this.$main.find("ul");
+
+            $.each(data.barbers, (i, barber) => {
+              $ul.append(`<li><a href="#" data-toggle="modal" data-target=".modal" data-id="${barber._id}">${barber.name}</a></li>`);
+            });
+          });
+        };
 
           App.logout = function() {
             event.preventDefault();
