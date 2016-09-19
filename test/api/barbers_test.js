@@ -41,11 +41,31 @@ describe("Barber tests", () => {
       it("should respond with a JSON object", done => {
         api.get("/api/barbers");
       });
+
       it("should return an object with the following keys", done => {
         api.get ("api/barbers")
           .set('Accept', "application/json")
-          .end("")
-      })
+          .end((err, res) => {
+            expect(res.body)
+              .to.have.property("barbers"
+              .and.be.an("array")
+              .and.have.property(0)
+              .and.have.all.keys([
+                "_id",
+                "name",
+                "website",
+                "image",
+                "vibe",
+                "description",
+                "lat",
+                "lng",
+                "otherServices",
+                "createdAt",
+                "updatedAt"
+              ]));
+              done();
+          });
+      });
     });
   });
 });
