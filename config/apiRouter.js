@@ -7,11 +7,8 @@ const barbers         = require("../controllers/barbers");
 
 router.route("/register")
   .post(authentications.register);
-  // .get(register);
 router.route("/login")
   .post(authentications.login);
-  // .get(login);
-
 
 router.route("/users")
   .get(users.index);

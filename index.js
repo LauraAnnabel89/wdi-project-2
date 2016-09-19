@@ -9,12 +9,14 @@ const morgan        = require("morgan");
 const validator     = require("validator");
 const path          = require("path");
 
+
 const app           = express();
+const enviroment    = app.get('env');
 const config        = require("./config/config");
 const apiRouter     = require("./config/apiRouter");
 const webRouter     = require("./config/webRouter");
 
-mongoose.connect(config.db);
+mongoose.connect(config.db[enviroment]);
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());

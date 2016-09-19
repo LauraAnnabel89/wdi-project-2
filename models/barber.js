@@ -10,7 +10,7 @@ const barberSchema = new mongoose.Schema({
   lng:            { type: String, time: true, required: true },
   otherServices:  { type: String, required: true}
 }, {
-timestamps: true
+  timestamps: true
 });
 
 module.exports = mongoose.model("Barber", barberSchema);

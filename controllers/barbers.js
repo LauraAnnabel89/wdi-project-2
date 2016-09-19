@@ -14,7 +14,6 @@ function barberIndex(req, res){
 
 function barberShow(req, res){
   Barber.findById(req.params.id, (err, barber) => {
-    console.log(err)
     if (err) return res.status(500).json({ message: "Something went wrong." });
     if (!barber) return res.status(404).json({ message: "No barber was found." });
     return res.status(200).json({ barber });

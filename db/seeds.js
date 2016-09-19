@@ -278,5 +278,4 @@ const barbers = [
   }
 ];
 
-
 barbers.forEach(barber => Barber.create(barber, (err, barber) => console.log(`${barber.name} was saved.`)));
