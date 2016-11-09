@@ -1,5 +1,7 @@
 A Cut Above the Rest ------
 
+![Alt text](images/mainsite.jpg?raw=true)
+
 Aim
 
 To have an authenticated multi-page website showing the best barbers in London with a great user-journey and lifestyle feel.
@@ -18,7 +20,7 @@ User Journey
 
 I started with wire frames and used them as a template however added in the additional pages at a later stage
 
- <img src="images/Laura-Tombs.png">
+![Alt text](images/Laura-Tombs.png?raw=true)
 
 Inspiration
 
@@ -26,17 +28,17 @@ Inspiration
 - This was partially why I decided at a later stage to put an editorial page in, I felt the images I had gathered were integral to the overall feel of the site so wanted a place to display them to the user
 
 - Websites -
-<img src="images/BarberStreisand.png">
-<img src="images/MrPorter.png">
+![Alt text](images/BarberStreisand.png?raw=true)
+![Alt text](images/MrPorter.png?raw=true)
 
 - Images -
-<img src="images/photobooth.png">
-<img src="images/blackbrushes.jpg">
-<img src="images/chair.jpg">
+![Alt text](images/photobooth.png?raw=true)
+![Alt text](images/blackbrushes.jpg?raw=true)
+![Alt text](images/chair.jpg?raw=true)
 
 -Colours-
 - I then used this as a base for my colours and used coolors to generate a board of complimentary tones
-<img src="images/coolors.png">
+![Alt text](images/coolers.png?raw=true)
 
 Elements and Functionality
 
