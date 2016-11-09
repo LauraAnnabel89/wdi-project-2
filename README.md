@@ -33,7 +33,8 @@ Inspiration
 
 -Colours-
 - I then used this as a base for my colours and used coolors to generate a board of complimentary tones
-![Alt text](/src/images/coolers.png?raw=true)
+
+![Alt text](/src/images/coolors.png?raw=true)
 
 Elements and Functionality
 
