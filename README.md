@@ -1,6 +1,6 @@
 A Cut Above the Rest ------
 
-![Alt text](images/mainsite.jpg?raw=true)
+![Alt text](/src/images/mainsite.jpg?raw=true)
 
 Aim
 
