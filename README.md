@@ -31,11 +31,6 @@ Inspiration
 ![Alt text](/src/images/BarberStreisand.png?raw=true)
 ![Alt text](/src/images/MrPorter.png?raw=true)
 
-- Images -
-![Alt text](/src/images/photobooth.png?raw=true)
-![Alt text](/src/images/blackbrushes.jpg?raw=true)
-![Alt text](/src/images/chair.jpg?raw=true)
-
 -Colours-
 - I then used this as a base for my colours and used coolors to generate a board of complimentary tones
 ![Alt text](/src/images/coolers.png?raw=true)
