@@ -1,9 +1,11 @@
 const App = App || {};
 
 App.init = function() {
-  this.apiUrl = window.location.origin;
+  this.apiUrl = window.location.origin + "/api";
   this.$main  = $("main");
   this.eventListeners();
+
+  console.log(this.apiUrl);
 };
 
 App.eventListeners = function() {
