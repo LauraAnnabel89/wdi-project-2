@@ -9,7 +9,7 @@ const barbers = [
   {
     name:           "The Refinery - Mayfair",
     website:        "https://www.the-refinery.com/",
-    image:          "https://www.the-refinery.com/wp-content/themes/twentythirteen/images/contact_refinery.png",
+    image:          "http://www.arbuturian.com/wp-content/uploads/2012/05/refinery-3a.jpg",
     vibe:           "Upscale boutique meets Saville Row",
     description:    "The Refinery is Londons one-stop Grooming Emporium for men. Established in January 2000 we offer barbering, skincare and spa treatments in exclusive luxury retreats in Mayfair and Harrods, Knightsbridge.",
     lat:            "51505777",
@@ -269,7 +269,7 @@ const barbers = [
   {
     name:               "Nomad Barber",
     website:            "http://nomadbarber.com/",
-    image:              "Nomad Barber LDN is an award winning barbershop located in the heart of London's famous east end. We opened in october 2014 and have become one of the most famous barbershops in the global barbering community, with customers from all over the world coming to visit on a daily basis.",
+    image:        "https://anamiblog.files.wordpress.com/2016/02/the-nomad-barber-shop.jpg?w=663",
     vibe:               "Insanely cool plus the staff are full of amazing stories!",
     description:        "Nomad Barber LDN is an award winning barbershop located in the heart of London's famous east end. We opened in october 2014 and have become one of the most famous barbershops in the global barbering community, with customers from all over the world coming to visit on a daily basis.",
     lat:                "51.5203599",
