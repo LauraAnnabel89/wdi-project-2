@@ -1,7 +1,7 @@
 const App = App || {};
 
 App.init = function() {
-  this.apiUrl = "http://localhost:3000/api";
+  this.apiUrl = window.location.origin;
   this.$main  = $("main");
   this.eventListeners();
 };
