@@ -63,7 +63,7 @@ App.addBarber = function() {
   event.preventDefault();
   $.ajax({
       method: "POST",
-      url: "http://localhost:3000/api/barbers",
+      url: `${App.apiUrl}/barbers`,
       data: $(this).serialize()
     }).done(data => {
       googleMap.createMarkerForBarber(null, data.barber);
