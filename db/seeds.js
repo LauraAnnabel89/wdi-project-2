@@ -3,7 +3,7 @@ const config   = require("../config/config");
 const Barber   = require("../models/barber");
 const path     = require("path");
 
-mongoose.connect(config.db);
+mongoose.connect(config.db.production);
 
 const barbers = [
   {
